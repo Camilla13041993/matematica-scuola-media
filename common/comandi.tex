@@ -7,9 +7,13 @@
 }
 \newcommand{\unita}[1]{\,\mathrm{#1}}
 
-% Nuovi comandi per la nuova struttura
+% Comando spazio risposta condizionale (compatto se ci sono le soluzioni)
 \newcommand{\responsespace}[1]{%
-  \vspace{#1}
+  \ifsoluzioni
+    \vspace{0.2cm}
+  \else
+    \vspace{#1}
+  \fi
 }
 
 \newcommand{\fillbox}[1]{%
