@@ -1,28 +1,40 @@
 \usepackage[italian]{babel}
-\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-
+\usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{amsmath, amssymb}
 \usepackage{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{array,tabularx}
 \usepackage{enumitem}
 \usepackage{xcolor}
-\usepackage{tcolorbox}
 \usepackage{fancyhdr}
+\usepackage{tikz}
 \usepackage{graphicx}
-\usepackage{array}
-\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{tcolorbox} % per compatibilità con altre schede
 
-\geometry{
-  a4paper,
-  margin=1.7cm
-}
-
+\geometry{top=1.6cm,bottom=1.7cm,left=1.8cm,right=1.8cm}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.5em}
+\setlength{\parskip}{0.55em}
+\renewcommand{\familydefault}{\sfdefault}
+\setstretch{1.08}
+\setlength{\headheight}{14pt}
+
+\definecolor{mainblue}{RGB}{31,83,130}
+\definecolor{softblue}{RGB}{238,247,252}
+\definecolor{softgray}{RGB}{245,245,245}
+\definecolor{linegray}{RGB}{160,160,160}
+\definecolor{textgray}{RGB}{55,55,55}
 
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{Matematica}
-\rhead{Scuola media}
-\cfoot{\thepage}
+\lhead{\small Esercitazione}
+\rhead{\small Prima media}
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{0.25pt}
+
+\titleformat{\section}
+  {\Large\bfseries\color{mainblue}}
+  {}{0pt}{}
+  [\vspace{-0.15cm}\color{mainblue}\titlerule]

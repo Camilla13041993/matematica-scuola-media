@@ -1,19 +1,14 @@
 \newcounter{esercizio}
 
+% Nuovo ambiente esercizio con lo stile pulito (senza tcolorbox scuro)
 \newenvironment{esercizio}[1]{%
-  \refstepcounter{esercizio}
-  \begin{tcolorbox}[
-    colback=white,
-    colframe=black!40,
-    title={Esercizio \theesercizio\ -- #1},
-    fonttitle=\bfseries,
-    arc=2mm,
-    boxrule=0.6pt
-  ]
-}{%
-  \end{tcolorbox}
-}
+  \refstepcounter{esercizio}%
+  \vspace{0.25cm}%
+  {\large\bfseries\color{mainblue}Esercizio \theesercizio\ -- #1}\par
+  \vspace{0.1cm}%
+}{\vspace{0.3cm}}
 
+% Altri ambienti preesistenti per compatibilità
 \newenvironment{reminder}{%
   \begin{tcolorbox}[
     colback=gray!8,

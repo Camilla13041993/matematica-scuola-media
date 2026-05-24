@@ -1,9 +1,42 @@
+% Comandi preesistenti per compatibilità
 \newcommand{\spazioRisposta}[1][2cm]{%
   \vspace{#1}
 }
-
 \newcommand{\rigaRisposta}{%
   \vspace{0.4cm}\hrule\vspace{0.4cm}
 }
-
 \newcommand{\unita}[1]{\,\mathrm{#1}}
+
+% Nuovi comandi per la nuova struttura
+\newcommand{\responsespace}[1]{%
+  \vspace{#1}
+}
+
+\newcommand{\fillbox}[1]{%
+  \raisebox{-0.28em}{\colorbox{softgray}{\makebox[#1][c]{\rule{0pt}{1.15em}}}}%
+}
+
+\newcommand{\immagine}[2][4cm]{%
+\begin{center}
+\IfFileExists{#2.png}{%
+  \includegraphics[height=#1,keepaspectratio]{#2.png}%
+}{\IfFileExists{#2.jpg}{%
+  \includegraphics[height=#1,keepaspectratio]{#2.jpg}%
+}{\IfFileExists{#2.pdf}{%
+  \includegraphics[height=#1,keepaspectratio]{#2.pdf}%
+}{%
+\begin{tikzpicture}
+  \draw[rounded corners=2mm, dashed, color=linegray] (0,0) rectangle (0.9\linewidth,#1);
+\end{tikzpicture}%
+}}}
+\end{center}
+}
+
+\newcommand{\nota}[1]{%
+\vspace{0.1cm}
+\noindent\colorbox{softblue}{%
+\parbox{0.965\linewidth}{\vspace{0.12cm}\textbf{Da tenere presente.} #1\vspace{0.12cm}}}
+\vspace{0.15cm}
+}
+
+\newcommand{\domanda}[1]{\textbf{#1}}
