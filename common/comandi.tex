@@ -16,6 +16,14 @@
   \fi
 }
 
+% Salto pagina condizionale (disattivato se ci sono le soluzioni)
+\newcommand{\condnewpage}{%
+  \ifsoluzioni
+  \else
+    \newpage
+  \fi
+}
+
 \newcommand{\fillbox}[1]{%
   \raisebox{-0.28em}{\colorbox{softgray}{\makebox[#1][c]{\rule{0pt}{1.15em}}}}%
 }
