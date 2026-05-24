@@ -1,0 +1,41 @@
+\newcounter{esercizio}
+
+\newenvironment{esercizio}[1]{%
+  \refstepcounter{esercizio}
+  \begin{tcolorbox}[
+    colback=white,
+    colframe=black!40,
+    title={Esercizio \theesercizio\ -- #1},
+    fonttitle=\bfseries,
+    arc=2mm,
+    boxrule=0.6pt
+  ]
+}{%
+  \end{tcolorbox}
+}
+
+\newenvironment{reminder}{%
+  \begin{tcolorbox}[
+    colback=gray!8,
+    colframe=black!30,
+    title={Ricorda},
+    fonttitle=\bfseries,
+    arc=2mm,
+    boxrule=0.5pt
+  ]
+}{%
+  \end{tcolorbox}
+}
+
+\newenvironment{soluzione}{%
+  \begin{tcolorbox}[
+    colback=green!5,
+    colframe=green!40!black,
+    title={Soluzione},
+    fonttitle=\bfseries,
+    arc=2mm,
+    boxrule=0.5pt
+  ]
+}{%
+  \end{tcolorbox}
+}
