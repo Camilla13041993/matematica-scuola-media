@@ -1,0 +1,27 @@
+name: Build capacity worksheet
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-capacita:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: 1_prima/grandezze_misure/capacita_volume/comune/01_esercitazione_capacita
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: esercitazione-capacita-pdf
+          path: 1_prima/grandezze_misure/capacita_volume/comune/01_esercitazione_capacita/main.pdf
