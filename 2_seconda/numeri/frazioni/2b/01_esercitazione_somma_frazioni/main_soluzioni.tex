@@ -1,0 +1,39 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../../../../common/preambolo.tex}
+\input{../../../../../common/comandi.tex}
+\input{../../../../../common/ambienti.tex}
+
+\tcbuselibrary{breakable}
+
+\rhead{\small Seconda media - Classe 2B}
+
+\soluzionitrue % Attiva le soluzioni per questa compilazione!
+
+\RenewEnviron{soluzione}{%
+  \ifsoluzioni
+    \vspace{0.15cm}
+    \begin{tcolorbox}[
+      colback=green!5,
+      colframe=green!40!black,
+      title={Soluzione Esercizio \theesercizio},
+      fonttitle=\bfseries,
+      arc=2mm,
+      boxrule=0.5pt,
+      left=3mm,
+      right=3mm,
+      top=2mm,
+      bottom=2mm,
+      breakable
+    ]
+      \BODY
+    \end{tcolorbox}
+    \vspace{0.15cm}
+  \fi
+}
+
+\begin{document}
+
+\input{esercizi.tex}
+
+\end{document}

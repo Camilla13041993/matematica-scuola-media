@@ -1,0 +1,1102 @@
+\begin{center}
+  {\Huge \color{mainblue}\textbf{Esercitazione: la somma di frazioni}}\\[0.2cm]
+  \rule{0.82\linewidth}{0.5pt}
+\end{center}
+
+
+\section*{Richiamo iniziale}
+
+\begin{esercizio}{Il cocktail di frutta}
+Per festeggiare la fine dell'anno scolastico, la classe decide di preparare un cocktail di frutta analcolico. La ricetta prevede di mescolare i seguenti ingredienti:
+\begin{itemize}
+  \item $\frac{1}{2}\unita{l}$ di succo di mela;
+  \item $\frac{1}{3}\unita{l}$ di succo d'arancia;
+  \item $\frac{1}{6}\unita{l}$ di sciroppo di fragola.
+\end{itemize}
+
+\domanda{a) Rappresenta graficamente gli ingredienti nel cilindro graduato sottostante.}\\
+\domanda{b) Calcola la frazione totale di liquido ottenuta.}\\
+\domanda{c) Se nella classe ci sono 24 studenti e ciascuno beve $\frac{1}{4}\unita{l}$ di cocktail, quanti litri servono in totale? Quante volte bisogna preparare la ricetta base per soddisfare tutta la classe?}
+
+\vspace{0.4cm}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1, every node/.style={scale=0.9}]
+  % Cylinder outline
+  \draw[thick, linegray] (0,0) -- (0,5) (3,0) -- (3,5);
+  \draw[thick, linegray] (0,0) to[out=-20,in=200] (3,0);
+  \draw[thick, linegray] (1.5,5) ellipse (1.5 and 0.25);
+  
+  % Graduations on the left side
+  \foreach \x in {1,2,3,4,5,6} {
+    \draw[linegray, thick] (0, 0.75*\x) -- (0.4, 0.75*\x);
+    \node[anchor=east, textgray] at (-0.15, 0.75*\x) {\small $\frac{\x}{6}\unita{l}$};
+  }
+  
+  % Filling with colors (conditional on solutions)
+  \ifsoluzioni
+    % 1/6 strawberry syrup (red) from y=0 to y=0.75
+    \path[fill=red!40!white] (0,0) to[out=-20,in=200] (3,0) -- (3, 0.75) to[out=200,in=-20] (0, 0.75) -- cycle;
+    \draw[red!80!black] (1.5, 0.375) node {\small Sciroppo di fragola ($\frac{1}{6}\unita{l}$)};
+    
+    % 2/6 orange juice (orange) from y=0.75 to y=2.25
+    \path[fill=orange!50!white] (0,0.75) to[out=-20,in=200] (3,0.75) -- (3, 2.25) to[out=200,in=-20] (0, 2.25) -- cycle;
+    \draw[orange!85!black] (1.5, 1.5) node {\small Succo d'arancia ($\frac{1}{3}\unita{l}$)};
+    
+    % 3/6 apple juice (yellow) from y=2.25 to y=4.5
+    \path[fill=yellow!45!white] (0,2.25) to[out=-20,in=200] (3,2.25) -- (3, 4.5) to[out=200,in=-20] (0, 4.5) -- cycle;
+    \draw[yellow!80!black!80!red] (1.5, 3.375) node {\small Succo di mela ($\frac{1}{2}\unita{l}$)};
+    
+    % Ellipses for liquid layers
+    \draw[red!80!black, fill=red!30!white, opacity=0.8] (1.5,0.75) ellipse (1.5 and 0.15);
+    \draw[orange!85!black, fill=orange!40!white, opacity=0.8] (1.5,2.25) ellipse (1.5 and 0.15);
+    \draw[yellow!80!black!80!red, fill=yellow!30!white, opacity=0.8] (1.5,4.5) ellipse (1.5 and 0.15);
+  \else
+    % Dashed ellipses inside cylinder for students to fill in
+    \foreach \x in {1,2,3,4,5} {
+      \draw[linegray, dashed] (1.5, 0.75*\x) ellipse (1.5 and 0.15);
+    }
+  \fi
+\end{tikzpicture}
+\end{center}
+
+\responsespace{5.5cm}
+
+\begin{soluzione}
+  \textbf{Passaggi risolutivi:}
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Rappresentazione grafica:} Troviamo il comune denominatore per posizionare gli ingredienti nel cilindro graduato in sesti:
+      \begin{itemize}
+        \item Sciroppo di fragola: $\frac{1}{6}\unita{l}$ ($1$ parte su $6$)
+        \item Succo d'arancia: $\frac{1}{3} = \frac{2}{6}\unita{l}$ ($2$ parti su $6$)
+        \item Succo di mela: $\frac{1}{2} = \frac{3}{6}\unita{l}$ ($3$ parti su $6$)
+      \end{itemize}
+      Nel cilindro si colorano dal basso: la prima sezione in rosso (fragola), le successive due sezioni in arancione (arancia), e le ultime tre sezioni in giallo (mela), riempiendo il cilindro fino a $\frac{6}{6}\unita{l}$ (1 litro).
+    \item \textbf{Frazione totale di liquido:} Sommiamo le quantità:
+      \[
+      \frac{1}{2} + \frac{1}{3} + \frac{1}{6} = \frac{3}{6} + \frac{2}{6} + \frac{1}{6} = \frac{3+2+1}{6} = \frac{6}{6} = 1\unita{l}
+      \]
+      Sì, si ottiene esattamente $1$ litro di cocktail.
+    \item \textbf{Fabbisogno per la classe:}
+      \begin{itemize}
+        \item Quantità totale per 24 studenti: $24 \times \frac{1}{4}\unita{l} = \frac{24}{4}\unita{l} = 6\unita{l}$.
+        \item Poiché una singola ricetta base produce esattamente $1\unita{l}$ di liquido, per preparare $6\unita{l}$ totali sarà necessario ripetere la ricetta esattamente \textbf{$6$ volte}.
+      \end{itemize}
+  \end{enumerate}
+  \textbf{Risposta:} b) $1\unita{l}$ (esattamente un litro); c) Servono $6\unita{l}$ di cocktail in totale e la ricetta va ripetuta $6$ volte.
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{tcolorbox}[
+  colback=blue!3,
+  colframe=mainblue,
+  title={Somma di frazioni},
+  fonttitle=\bfseries\large,
+  arc=2mm,
+  boxrule=1pt,
+  left=4mm, right=4mm, top=3mm, bottom=3mm
+]
+\textbf{1. Perché? (Il motivo visivo)}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95, every node/.style={scale=0.95}]
+  % Bar 1 (1/2 = 3/6)
+  \node[anchor=east] at (-0.2, 3.25) {\large $\frac{1}{2} = \frac{3}{6}$};
+  \fill[blue!15!white] (0,3.0) rectangle (3,3.5);
+  \draw[thick, mainblue] (0,3.0) rectangle (6,3.5);
+  \draw[thick, mainblue] (3,3.0) -- (3,3.5);
+  \draw[dashed, linegray] (1,3.0) -- (1,3.5) (2,3.0) -- (2,3.5) (4,3.0) -- (4,3.5) (5,3.0) -- (5,3.5);
+
+  % Bar 2 (1/3 = 2/6)
+  \node[anchor=east] at (-0.2, 1.75) {\large $\frac{1}{3} = \frac{2}{6}$};
+  \fill[blue!15!white] (0,1.5) rectangle (2,2.0);
+  \draw[thick, mainblue] (0,1.5) rectangle (6,2.0);
+  \draw[thick, mainblue] (2,1.5) -- (2,2.0) (4,1.5) -- (4,2.0);
+  \draw[dashed, linegray] (1,1.5) -- (1,2.0) (3,1.5) -- (3,2.0) (5,1.5) -- (5,2.0);
+
+  % Bar 3 (3/6 + 2/6 = 5/6)
+  \node[anchor=east] at (-0.2, 0.25) {\large $\frac{3}{6} + \frac{2}{6} = \frac{5}{6}$};
+  \fill[blue!35!white] (0,0) rectangle (5,0.5);
+  \draw[thick, mainblue] (0,0) rectangle (6,0.5);
+  \foreach \x in {1,2,3,4,5} {
+    \draw[thick, mainblue] (\x,0) -- (\x,0.5);
+  }
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.15cm}\hrule\vspace{0.15cm}
+
+\textbf{2. Come si calcola? (Esempio guidato)}
+$$\frac{3}{4} + \frac{1}{6}$$
+\begin{enumerate}[label=\arabic*., leftmargin=1.5cm, noitemsep]
+  \item \textbf{Denominatore comune} (m.c.m. tra $4$ e $6$): \ \textbf{12}
+  \item \textbf{Adatta i numeratori}:
+    $$\frac{3}{4} = \frac{3 \times 3}{12} = \frac{9}{12} \qquad \text{e} \qquad \frac{1}{6} = \frac{1 \times 2}{12} = \frac{2}{12}$$
+  \item \textbf{Somma i numeratori}:
+    $$\frac{9}{12} + \frac{2}{12} = \frac{11}{12}$$
+\end{enumerate}
+\end{tcolorbox}
+
+\condnewpage
+
+
+\section*{1. Esercizi di riscaldamento}
+
+\begin{esercizio}{La piramide delle somme}
+In questa piramide, il valore di ogni mattone è uguale alla somma dei valori dei due mattoni che si trovano direttamente sotto di esso.
+
+\domanda{Completa la piramide inserendo le frazioni mancanti nei mattoni vuoti. Semplifica sempre le frazioni ottenute.}
+
+\vspace{0.4cm}
+\begin{center}
+\begin{tikzpicture}[scale=1.0]
+  % Draw bottom row
+  \draw[thick, mainblue] (0,0) rectangle (2.6,1.3);
+  \draw[thick, mainblue] (2.6,0) rectangle (5.2,1.3);
+  \draw[thick, mainblue] (5.2,0) rectangle (7.8,1.3);
+  
+  % Draw middle row
+  \draw[thick, mainblue] (1.3,1.3) rectangle (3.9,2.6);
+  \draw[thick, mainblue] (3.9,1.3) rectangle (6.5,2.6);
+  
+  % Draw top row
+  \draw[thick, mainblue] (2.6,2.6) rectangle (5.2,3.9);
+  
+  % Labels for bottom row (always visible)
+  \node at (1.3,0.65) {\large $\frac{1}{3}$};
+  \node at (3.9,0.65) {\large $\frac{1}{6}$};
+  \node at (6.5,0.65) {\large $\frac{2}{5}$};
+  
+  % Labels for middle and top rows
+  \ifsoluzioni
+    \node[red!80!black] at (2.6,1.95) {\large \textbf{$\frac{1}{2}$}};
+    \node[red!80!black] at (5.2,1.95) {\large \textbf{$\frac{17}{30}$}};
+    \node[red!80!black] at (3.9,3.25) {\large \textbf{$\frac{16}{15}$}};
+  \else
+    \node[lightgray] at (2.6,1.95) {\textbf{?}};
+    \node[lightgray] at (5.2,1.95) {\textbf{?}};
+    \node[lightgray] at (3.9,3.25) {\textbf{?}};
+  \fi
+\end{tikzpicture}
+\end{center}
+
+\responsespace{4.0cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  \begin{enumerate}
+    \item \textbf{Mattone intermedio sinistro:} somma dei due mattoni sottostanti (sinistro e centrale):
+      \[
+      \frac{1}{3} + \frac{1}{6} = \frac{2}{6} + \frac{1}{6} = \frac{3}{6} = \frac{1}{2}
+      \]
+    \item \textbf{Mattone intermedio destro:} somma dei due mattoni sottostanti (centrale e destro):
+      \[
+      \frac{1}{6} + \frac{2}{5} = \frac{5}{30} + \frac{12}{30} = \frac{17}{30}
+      \]
+    \item \textbf{Mattone superiore (cima):} somma dei due mattoni intermedi:
+      \[
+      \frac{1}{2} + \frac{17}{30} = \frac{15}{30} + \frac{17}{30} = \frac{32}{30} = \frac{16}{15}
+      \]
+  \end{enumerate}
+  \textbf{Soluzione nei mattoni (dal basso in alto):} $\frac{1}{2}$, $\frac{17}{30}$ e, sulla cima, $\frac{16}{15}$.
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+
+\begin{esercizio}{Uguaglianze e valore ignoto}
+Risolvi le seguenti uguaglianze determinando il valore della lettera $x$. Semplifica i risultati quando possibile.
+
+\vspace{0.3cm}
+\renewcommand{\arraystretch}{2.25}
+\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+a) $\frac{2}{3} + x = \frac{7}{3}$ & b) $x - \frac{3}{5} = \frac{1}{15}$ \\
+\hline
+c) $x + \frac{1}{5} = \frac{3}{5}$ & d) $\frac{4}{7} - x = \frac{5}{14}$ \\
+\hline
+\end{tabularx}
+\vspace{0.3cm}
+
+\responsespace{3.8cm}
+
+\begin{soluzione}
+  \textbf{Risoluzione delle uguaglianze per determinare $x$:}
+  \begin{enumerate}[label=\alph*)]
+    \item Per trovare $x$, sottraiamo $\frac{2}{3}$ dal totale:
+      \[
+      x = \frac{7}{3} - \frac{2}{3} = \frac{7-2}{3} = \frac{5}{3}
+      \]
+    \item Per trovare $x$, sommiamo $\frac{3}{5}$ al risultato. Troviamo il comune denominatore ($15$):
+      \[
+      x = \frac{1}{15} + \frac{3}{5} = \frac{1}{15} + \frac{9}{15} = \frac{10}{15} = \frac{2}{3}
+      \]
+    \item Per trovare $x$, sottraiamo $\frac{1}{5}$ dal totale:
+      \[
+      x = \frac{3}{5} - \frac{1}{5} = \frac{2}{5}
+      \]
+    \item Per trovare $x$, sottraiamo $\frac{5}{14}$ da $\frac{4}{7}$. Troviamo il comune denominatore ($14$):
+      \[
+      x = \frac{4}{7} - \frac{5}{14} = \frac{8}{14} - \frac{5}{14} = \frac{3}{14}
+      \]
+  \end{enumerate}
+  \textbf{Risposte da inserire:} a) $x = \frac{5}{3}$; b) $x = \frac{2}{3}$; c) $x = \frac{2}{5}$; d) $x = \frac{3}{14}$.
+\end{soluzione}
+\end{esercizio}
+
+\begin{esercizio}{Corrispondenze tra operazioni e risultati}
+Associa ciascuna operazione a sinistra con il suo risultato corretto a destra collegandoli con una freccia.
+
+\vspace{0.4cm}
+\begin{minipage}{0.48\linewidth}
+  \begin{enumerate}[label=\arabic*)]
+    \item $\frac{1}{2} + \frac{1}{4}$
+    \vspace{0.4cm}
+    \item $\frac{2}{3} - \frac{1}{6}$
+    \vspace{0.4cm}
+    \item $\frac{3}{5} + \frac{1}{10}$
+    \vspace{0.4cm}
+    \item $1 - \frac{2}{3}$
+  \end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\linewidth}
+  \begin{enumerate}[label=\Alph*)]
+    \item $\frac{1}{3}$
+    \vspace{0.4cm}
+    \item $\frac{3}{4}$
+    \vspace{0.4cm}
+    \item $\frac{1}{2}$
+    \vspace{0.4cm}
+    \item $\frac{7}{10}$
+  \end{enumerate}
+\end{minipage}
+\vspace{0.4cm}
+
+\responsespace{2.2cm}
+
+\begin{soluzione}
+  \textbf{Associazioni corrette:}
+  \begin{itemize}
+    \item \textbf{1) $\frac{1}{2} + \frac{1}{4} = \frac{2}{4} + \frac{1}{4} = \frac{3}{4}$} $\to$ si associa alla lettera \textbf{B)}
+    \item \textbf{2) $\frac{2}{3} - \frac{1}{6} = \frac{4}{6} - \frac{1}{6} = \frac{3}{6} = \frac{1}{2}$} $\to$ si associa alla lettera \textbf{C)}
+    \item \textbf{3) $\frac{3}{5} + \frac{1}{10} = \frac{6}{10} + \frac{1}{10} = \frac{7}{10}$} $\to$ si associa alla lettera \textbf{D)}
+    \item \textbf{4) $1 - \frac{2}{3} = \frac{3}{3} - \frac{2}{3} = \frac{1}{3}$} $\to$ si associa alla lettera \textbf{A)}
+  \end{itemize}
+  \textbf{Accoppiamenti finali:} 1-B, 2-C, 3-D, 4-A.
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{tcolorbox}[
+  colback=blue!3,
+  colframe=mainblue,
+  title={Sottrazione di frazioni},
+  fonttitle=\bfseries\large,
+  arc=2mm,
+  boxrule=1pt,
+  left=4mm, right=4mm, top=3mm, bottom=3mm
+]
+\textbf{1. Perché? (Il motivo visivo)}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95, every node/.style={scale=0.95}]
+  % Bar 1 (2/3 = 4/6)
+  \node[anchor=east] at (-0.2, 3.25) {\large $\frac{2}{3} = \frac{4}{6}$};
+  \fill[blue!15!white] (0,3.0) rectangle (4,3.5);
+  \draw[thick, mainblue] (0,3.0) rectangle (6,3.5);
+  \draw[thick, mainblue] (2,3.0) -- (2,3.5) (4,3.0) -- (4,3.5);
+  \draw[dashed, linegray] (1,3.0) -- (1,3.5) (3,3.0) -- (3,3.5) (5,3.0) -- (5,3.5);
+
+  % Bar 2 (1/6)
+  \node[anchor=east] at (-0.2, 1.75) {\large $\frac{1}{6}$};
+  \fill[blue!15!white] (0,1.5) rectangle (1,2.0);
+  \draw[thick, mainblue] (0,1.5) rectangle (6,2.0);
+  \foreach \x in {1,2,3,4,5} {
+    \draw[thick, mainblue] (\x,1.5) -- (\x,2.0);
+  }
+
+  % Bar 3 (4/6 - 1/6 = 3/6 = 1/2)
+  \node[anchor=east] at (-0.2, 0.25) {\large $\frac{4}{6} - \frac{1}{6} = \frac{3}{6} = \frac{1}{2}$};
+  \fill[blue!35!white] (0,0) rectangle (3,0.5);
+  \draw[thick, mainblue] (0,0) rectangle (6,0.5);
+  \foreach \x in {1,2,3,4,5} {
+    \draw[thick, mainblue] (\x,0) -- (\x,0.5);
+  }
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.15cm}\hrule\vspace{0.15cm}
+
+\textbf{2. Come si calcola? (Esempio guidato)}
+$$\frac{3}{4} - \frac{1}{6}$$
+\begin{enumerate}[label=\arabic*., leftmargin=1.5cm, noitemsep]
+  \item \textbf{Denominatore comune} (m.c.m. tra $4$ e $6$): \ \textbf{12}
+  \item \textbf{Adatta i numeratori}:
+    $$\frac{3}{4} = \frac{3 \times 3}{12} = \frac{9}{12} \qquad \text{e} \qquad \frac{1}{6} = \frac{1 \times 2}{12} = \frac{2}{12}$$
+  \item \textbf{Sottrai i numeratori}:
+    $$\frac{9}{12} - \frac{2}{12} = \frac{7}{12}$$
+\end{enumerate}
+\end{tcolorbox}
+
+\condnewpage
+
+
+\section*{2. Palestra di calcolo}
+
+\begin{esercizio}{Calcoli con frazioni (livello base)}
+Calcola il risultato delle seguenti somme e sottrazioni tra frazioni. Ricordati di ridurre ai minimi termini le frazioni ottenute.
+
+\vspace{0.2cm}
+\renewcommand{\arraystretch}{2.5}
+\begin{tabularx}{\linewidth}{XX}
+  a) $\frac{5}{12} + \frac{1}{12} = \fillbox{2.2cm}$ & b) $\frac{7}{10} - \frac{3}{10} = \fillbox{2.2cm}$ \\
+  c) $\frac{3}{4} + \frac{1}{6} = \fillbox{2.2cm}$ & d) $\frac{5}{6} - \frac{3}{8} = \fillbox{2.2cm}$ \\
+  e) $1 - \frac{3}{7} = \fillbox{2.2cm}$ & f) $\frac{9}{4} - 2 = \fillbox{2.2cm}$ \\
+  g) $3 - \frac{5}{6} = \fillbox{2.2cm}$ & h) $\frac{11}{3} - 3 = \fillbox{2.2cm}$ \\
+\end{tabularx}
+\vspace{0.2cm}
+
+\responsespace{3.2cm}
+
+\begin{soluzione}
+  \textbf{Svolgimento passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Stesso denominatore:} $\frac{5}{12} + \frac{1}{12} = \frac{5+1}{12} = \frac{6}{12} = \frac{1}{2}$
+    \item \textbf{Stesso denominatore:} $\frac{7}{10} - \frac{3}{10} = \frac{7-3}{10} = \frac{4}{10} = \frac{2}{5}$
+    \item \textbf{Comune denominatore (12):} $\frac{3}{4} + \frac{1}{6} = \frac{9}{12} + \frac{2}{12} = \frac{9+2}{12} = \frac{11}{12}$
+    \item \textbf{Comune denominatore (24):} $\frac{5}{6} - \frac{3}{8} = \frac{20}{24} - \frac{9}{24} = \frac{20-9}{24} = \frac{11}{24}$
+    \item \textbf{Intero e frazione:} $1 - \frac{3}{7} = \frac{7}{7} - \frac{3}{7} = \frac{7-3}{7} = \frac{4}{7}$
+    \item \textbf{Frazione e intero:} $\frac{9}{4} - 2 = \frac{9}{4} - \frac{8}{4} = \frac{9-8}{4} = \frac{1}{4}$
+    \item \textbf{Intero e frazione:} $3 - \frac{5}{6} = \frac{18}{6} - \frac{5}{6} = \frac{13}{6}$
+    \item \textbf{Frazione e intero:} $\frac{11}{3} - 3 = \frac{11}{3} - \frac{9}{3} = \frac{2}{3}$
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{tcolorbox}[
+  colback=blue!3,
+  colframe=mainblue,
+  title={Ordine delle parentesi},
+  fonttitle=\bfseries\small,
+  arc=1.5mm,
+  boxrule=0.8pt,
+  left=2mm, right=2mm, top=1.5mm, bottom=1.5mm
+]
+\centering\small
+Prima risolvi le \textbf{Tonde} $\mathbf{(\quad)}$, poi le \textbf{Quadre} $\mathbf{[\quad]}$, infine le \textbf{Graffe} $\mathbf{\{\quad\}}$.
+\end{tcolorbox}
+
+\begin{esercizio}{Calcoli con frazioni (livello avanzato)}
+Esegui i seguenti calcoli progressivi forniti dal docente di codocenza, semplificando le frazioni e riducendo i risultati ai minimi termini.
+
+\vspace{0.2cm}
+\renewcommand{\arraystretch}{2.5}
+\begin{tabularx}{\linewidth}{XX}
+  a) $\frac{24}{25} - \frac{11}{20} - \frac{1}{4} = \fillbox{2.2cm}$ & b) $\frac{1}{5} + \frac{21}{30} - \frac{1}{6} = \fillbox{2.2cm}$ \\
+  c) $5 - \frac{1}{2} + \frac{1}{3} - \frac{1}{6} + \frac{1}{7} = \fillbox{2.2cm}$ & d) $\frac{44}{45} + \frac{17}{30} - \frac{2}{9} + \frac{1}{15} = \fillbox{2.2cm}$ \\
+  e) $\frac{35}{50} - \frac{15}{16} + \frac{3}{40} - \frac{5}{200} = \fillbox{2.2cm}$ & f) $\frac{21}{24} - \left(\frac{15}{36} - 1 + \frac{7}{12}\right) = \fillbox{2.2cm}$ \\
+  g) $\frac{48}{36} - \left(\frac{55}{44} - \frac{6}{15}\right) = \fillbox{2.2cm}$ & h) $8 - \left(\frac{85}{15} + \frac{5}{6}\right) = \fillbox{2.2cm}$ \\
+  i) $\frac{50}{40} - \left(\frac{12}{18} + \frac{8}{32}\right) = \fillbox{2.2cm}$ & l) $\frac{45}{72} - \left(\frac{32}{48} - \frac{10}{25}\right) - \frac{1}{40} = \fillbox{2.2cm}$ \\
+  m) $\frac{17}{12} + \frac{55}{66} - \left(2 - \frac{12}{16}\right) = \fillbox{2.2cm}$ & n) $\left(\frac{4}{5} - \frac{4}{12}\right) - \frac{1}{3} + \frac{7}{15} = \fillbox{2.2cm}$ \\
+\end{tabularx}
+\vspace{0.2cm}
+
+\responsespace{3.8cm}
+
+\begin{soluzione}
+  \textbf{Svolgimento passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Comune denominatore (100):}
+      \[
+      \frac{24}{25} - \frac{11}{20} - \frac{1}{4} = \frac{24 \times 4 - 11 \times 5 - 1 \times 25}{100} = \frac{96 - 55 - 25}{100} = \frac{16}{100} = \frac{4}{25}
+      \]
+    \item \textbf{Semplificazione e mcm (30):} Semplifichiamo prima $\frac{21}{30} = \frac{7}{10}$:
+      \[
+      \frac{1}{5} + \frac{7}{10} - \frac{1}{6} = \frac{1 \times 6 + 7 \times 3 - 1 \times 5}{30} = \frac{6 + 21 - 5}{30} = \frac{22}{30} = \frac{11}{15}
+      \]
+    \item \textbf{Comune denominatore (42):}
+      \[
+      5 - \frac{1}{2} + \frac{1}{3} - \frac{1}{6} + \frac{1}{7} = \frac{210 - 21 + 14 - 7 + 6}{42} = \frac{202}{42} = \frac{101}{21}
+      \]
+    \item \textbf{Comune denominatore (90):}
+      \[
+      \frac{44}{45} + \frac{17}{30} - \frac{2}{9} + \frac{1}{15} = \frac{88 + 51 - 20 + 6}{90} = \frac{125}{90} = \frac{25}{18}
+      \]
+    \item \textbf{Semplificazione e mcm (80):} Semplifichiamo $\frac{35}{50} = \frac{7}{10}$ e $\frac{5}{200} = \frac{1}{40}$:
+      \[
+      \frac{7}{10} - \frac{15}{16} + \frac{3}{40} - \frac{1}{40} = \frac{7}{10} - \frac{15}{16} + \frac{2}{40} = \frac{7}{10} - \frac{15}{16} + \frac{1}{20}
+      \]
+      Calcoliamo con denominatore comune 80:
+      \[
+      \frac{7 \times 8 - 15 \times 5 + 1 \times 4}{80} = \frac{56 - 75 + 4}{80} = -\frac{15}{80} = -\frac{3}{16}
+      \]
+    \item \textbf{Semplificazione e parentesi:} Semplifichiamo $\frac{21}{24} = \frac{7}{8}$ e $\frac{15}{36} = \frac{5}{12}$:
+      \[
+      \frac{7}{8} - \left(\frac{5}{12} - 1 + \frac{7}{12}\right) = \frac{7}{8} - \left(\frac{5+7}{12} - 1\right) = \frac{7}{8} - \left(\frac{12}{12} - 1\right) = \frac{7}{8} - (1-1) = \frac{7}{8}
+      \]
+    \item \textbf{Semplificazione e parentesi:} Semplifichiamo $\frac{48}{36} = \frac{4}{3}$, $\frac{55}{44} = \frac{5}{4}$ e $\frac{6}{15} = \frac{2}{5}$:
+      \[
+      \frac{4}{3} - \left(\frac{5}{4} - \frac{2}{5}\right) = \frac{4}{3} - \left(\frac{25-8}{20}\right) = \frac{4}{3} - \frac{17}{20} = \frac{80-51}{60} = \frac{29}{60}
+      \]
+    \item \textbf{Semplificazione e parentesi:} Semplifichiamo $\frac{85}{15} = \frac{17}{3}$:
+      \[
+      8 - \left(\frac{17}{3} + \frac{5}{6}\right) = 8 - \left(\frac{34+5}{6}\right) = 8 - \frac{39}{6} = 8 - \frac{13}{2} = \frac{16-13}{2} = \frac{3}{2}
+      \]
+    \item \textbf{Semplificazione e parentesi:} Semplifichiamo $\frac{50}{40} = \frac{5}{4}$, $\frac{12}{18} = \frac{2}{3}$ e $\frac{8}{32} = \frac{1}{4}$:
+      \[
+      \frac{5}{4} - \left(\frac{2}{3} + \frac{1}{4}\right) = \frac{5}{4} - \left(\frac{8+3}{12}\right) = \frac{5}{4} - \frac{11}{12} = \frac{15-11}{12} = \frac{4}{12} = \frac{1}{3}
+      \]
+    \item[l)] \textbf{Semplificazione e mcm (120):} Semplifichiamo $\frac{45}{72} = \frac{5}{8}$, $\frac{32}{48} = \frac{2}{3}$ e $\frac{10}{25} = \frac{2}{5}$:
+      \[
+      \frac{5}{8} - \left(\frac{2}{3} - \frac{2}{5}\right) - \frac{1}{40} = \frac{5}{8} - \frac{4}{15} - \frac{1}{40} = \frac{5 \times 15 - 4 \times 8 - 1 \times 3}{120} = \frac{75 - 32 - 3}{120} = \frac{40}{120} = \frac{1}{3}
+      \]
+    \item[m)] \textbf{Semplificazione e parentesi:} Semplifichiamo $\frac{55}{66} = \frac{5}{6}$ e $\frac{12}{16} = \frac{3}{4}$:
+      \[
+      \frac{17}{12} + \frac{5}{6} - \left(2 - \frac{3}{4}\right) = \frac{17+10}{12} - \frac{5}{4} = \frac{27}{12} - \frac{15}{12} = \frac{12}{12} = 1
+      \]
+    \item[n)] \textbf{Semplificazione e parentesi:} Semplifichiamo $\frac{4}{12} = \frac{1}{3}$:
+      \[
+      \left(\frac{4}{5} - \frac{1}{3}\right) - \frac{1}{3} + \frac{7}{15} = \frac{12-5}{15} - \frac{5}{15} + \frac{7}{15} = \frac{7-5+7}{15} = \frac{9}{15} = \frac{3}{5}
+      \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\section*{3. Espressioni con le parentesi}
+
+
+
+\begin{esercizio}{Espressioni con frazioni (livello base e intermedio)}
+Risolvi le seguenti espressioni con frazioni, rispettando l'ordine delle parentesi. Ricordati di semplificare il risultato finale.
+
+\begin{enumerate}[label=\alph*)]
+  \item $\left( \frac{1}{2} + \frac{2}{3} \right) - \frac{5}{6}$
+  \responsespace{3.0cm}
+  
+  \item $\frac{5}{4} - \left( \frac{1}{3} + \frac{1}{2} \right)$
+  \responsespace{3.0cm}
+  
+  \item $2 - \left( \frac{3}{5} + \frac{7}{10} \right)$
+  \responsespace{3.0cm}
+  
+  \item $\left( \frac{3}{2} - \frac{2}{3} \right) + \left( \frac{5}{4} - \frac{5}{6} \right)$
+  \responsespace{3.0cm}
+
+  \item $\frac{23}{10} - \left[ \frac{3}{5} - \left( \frac{1}{2} - \frac{1}{5} \right) \right]$
+  \responsespace{3.0cm}
+\end{enumerate}
+
+\begin{soluzione}
+  \textbf{Svolgimento passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item Prima svolgiamo la parentesi tonda (comune denominatore 6):
+      \[
+      \left( \frac{3}{6} + \frac{4}{6} \right) - \frac{5}{6} = \frac{7}{6} - \frac{5}{6} = \frac{2}{6} = \frac{1}{3}
+      \]
+    \item Prima svolgiamo la parentesi tonda (comune denominatore 6):
+      \[
+      \frac{5}{4} - \left( \frac{2}{6} + \frac{3}{6} \right) = \frac{5}{4} - \frac{5}{6}
+      \]
+      Ora eseguiamo la sottrazione (comune denominatore 12):
+      \[
+      \frac{15}{12} - \frac{10}{12} = \frac{5}{12}
+      \]
+    \item Prima svolgiamo la parentesi tonda (comune denominatore 10):
+      \[
+      2 - \left( \frac{6}{10} + \frac{7}{10} \right) = 2 - \frac{13}{10}
+      \]
+      Ora calcoliamo la differenza con l'intero:
+      \[
+      \frac{20}{10} - \frac{13}{10} = \frac{7}{10}
+      \]
+    \item Svolgiamo contemporaneamente le due parentesi tonde:
+      \begin{itemize}
+        \item Prima tonda (comune denominatore 6): $\frac{3}{2} - \frac{2}{3} = \frac{9-4}{6} = \frac{5}{6}$
+        \item Seconda tonda (comune denominatore 12): $\frac{5}{4} - \frac{5}{6} = \frac{15-10}{12} = \frac{5}{12}$
+      \end{itemize}
+      Ora sommiamo i due risultati (comune denominatore 12):
+      \[
+      \frac{5}{6} + \frac{5}{12} = \frac{10}{12} + \frac{5}{12} = \frac{15}{12} = \frac{5}{4}
+      \]
+    \item Risolviamo prima la tonda interna (comune denominatore 10):
+      \[
+      \frac{23}{10} - \left[ \frac{3}{5} - \left( \frac{5-2}{10} \right) \right] = \frac{23}{10} - \left[ \frac{3}{5} - \frac{3}{10} \right]
+      \]
+      Troviamo il comune denominatore nella quadra (10):
+      \[
+      \frac{23}{10} - \left[ \frac{6-3}{10} \right] = \frac{23}{10} - \frac{3}{10} = \frac{20}{10} = 2
+      \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Espressioni con frazioni (livello avanzato)}
+Risolvi le seguenti espressioni complesse con frazioni, rispettando l'ordine delle parentesi e semplificando i calcoli intermedi.
+
+\begin{enumerate}[label=\alph*)]
+  \item $\frac{10}{3} + \frac{3}{4} - \left(\frac{7}{12} - \frac{1}{2} + 1\right) - \left[\frac{7}{12} + 3 + \frac{1}{2} - \left(\frac{8}{3} - \frac{9}{4} + \frac{4}{6}\right)\right]$
+  \responsespace{3.0cm}
+
+  \item $\left[2 - \frac{2}{3} + \frac{5}{12} - \left(\frac{5}{6} + \frac{7}{12} - \frac{5}{12}\right)\right] + \left(\frac{1}{2} + 6 + \frac{3}{12}\right) - 2$
+  \responsespace{3.0cm}
+
+  \item $\frac{4}{3} + \frac{7}{9} - \left(\frac{2}{9} + 1 + \frac{3}{15} + \frac{6}{45}\right) - \left[\frac{18}{15} - \left(1 + \frac{1}{9} - \frac{1}{15}\right)\right]$
+  \responsespace{3.0cm}
+
+  \item $\frac{2}{3} + \frac{5}{4} - \left(\frac{3}{6} + 3 - \frac{7}{4}\right) + \left[\frac{5}{3} - \left(\frac{1}{6} + \frac{3}{4} + 1 - \frac{10}{12}\right)\right]$
+  \responsespace{3.0cm}
+
+  \item $\frac{7}{12} + \frac{2}{3} + 2 - \left[ \frac{7}{4} - \frac{5}{6} - \left( 1 - \frac{1}{2} \right) \right] - \frac{5}{6}$
+  \responsespace{3.0cm}
+
+  \item $\frac{11}{12} + \left[ \left( \frac{11}{4} - \frac{7}{5} \right) - \left( 1 - \frac{1}{3} - \frac{1}{2} \right) - \left( \frac{8}{5} - \frac{7}{6} \right) \right]$
+  \responsespace{3.0cm}
+
+  \item $4 - \left[ \frac{9}{12} + \left( \frac{5}{6} - \frac{2}{3} \right) - \left( \frac{7}{5} - \frac{4}{3} \right) \right] - \left( 1 - \frac{2}{5} \right)$
+  \responsespace{3.0cm}
+
+  \item $\left[ \frac{1}{2} + \frac{3}{4} - \left( \frac{1}{2} + \frac{3}{2} - \frac{5}{4} \right) \right] + \left[ \left( \frac{1}{3} - \frac{1}{6} \right) + \left( \frac{3}{2} - \frac{2}{3} \right) \right] - \left( 1 + \frac{1}{2} \right)$
+  \responsespace{3.0cm}
+
+  \item $\left\{ \left[ \left( \frac{1}{4} + \frac{5}{6} + \frac{13}{2} \right) - \frac{79}{12} \right] + \left[ \left( \frac{11}{4} + \frac{3}{8} + \frac{7}{6} \right) - \frac{101}{24} \right] \right\} - \frac{1}{12}$
+  \responsespace{3.0cm}
+\end{enumerate}
+
+\begin{soluzione}
+  \textbf{Svolgimento passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Prima espressione:}
+      Risolviamo le due parentesi tonde:
+      \[
+      \frac{7}{12} - \frac{1}{2} + 1 = \frac{7-6+12}{12} = \frac{13}{12}
+      \]
+      Semplificando $\frac{4}{6} = \frac{2}{3}$, risolviamo la seconda tonda:
+      \[
+      \frac{8}{3} - \frac{9}{4} + \frac{2}{3} = \frac{10}{3} - \frac{9}{4} = \frac{40-27}{12} = \frac{13}{12}
+      \]
+      Sostituiamo nella parentesi quadra:
+      \[
+      \left[ \frac{7}{12} + 3 + \frac{1}{2} - \frac{13}{12} \right] = \left[ \frac{7 - 13}{12} + 3 + \frac{1}{2} \right] = \left[ -\frac{6}{12} + 3 + \frac{1}{2} \right] = \left[ -\frac{1}{2} + 3 + \frac{1}{2} \right] = 3
+      \]
+      Eseguiamo il calcolo finale:
+      \[
+      \frac{10}{3} + \frac{3}{4} - \frac{13}{12} - 3 = \frac{40 + 9 - 13 - 36}{12} = \frac{49-49}{12} = 0
+      \]
+    \item \textbf{Seconda espressione:}
+      Svolgiamo la prima tonda interna alla quadra:
+      \[
+      \frac{5}{6} + \frac{7}{12} - \frac{5}{12} = \frac{5}{6} + \frac{2}{12} = \frac{5}{6} + \frac{1}{6} = \frac{6}{6} = 1
+      \]
+      Sostituiamo e risolviamo la parentesi quadra:
+      \[
+      \left[ 2 - \frac{2}{3} + \frac{5}{12} - 1 \right] = \left[ 1 - \frac{2}{3} + \frac{5}{12} \right] = \left[ \frac{1}{3} + \frac{5}{12} \right] = \frac{4+5}{12} = \frac{9}{12} = \frac{3}{4}
+      \]
+      Semplifichiamo $\frac{3}{12} = \frac{1}{4}$ nella seconda tonda e la calcoliamo:
+      \[
+      \frac{1}{2} + 6 + \frac{1}{4} = \frac{2 + 24 + 1}{4} = \frac{27}{4}
+      \]
+      Eseguiamo il calcolo finale:
+      \[
+      \frac{3}{4} + \frac{27}{4} - 2 = \frac{30}{4} - 2 = \frac{15}{2} - 2 = \frac{15-4}{2} = \frac{11}{2}
+      \]
+    \item \textbf{Terza espressione:}
+      Semplifichiamo le frazioni nella prima tonda: $\frac{3}{15} = \frac{1}{5}$ e $\frac{6}{45} = \frac{2}{15}$.
+      \[
+      \frac{2}{9} + 1 + \frac{1}{5} + \frac{2}{15} = \frac{10 + 45 + 9 + 6}{45} = \frac{70}{45} = \frac{14}{9}
+      \]
+      Risolviamo la tonda interna alla quadra:
+      \[
+      1 + \frac{1}{9} - \frac{1}{15} = \frac{45 + 5 - 3}{45} = \frac{47}{45}
+      \]
+      Semplifichiamo $\frac{18}{15} = \frac{6}{5}$ e calcoliamo la parentesi quadra:
+      \[
+      \left[ \frac{6}{5} - \frac{47}{45} \right] = \frac{54-47}{45} = \frac{7}{45}
+      \]
+      Eseguiamo il calcolo finale:
+      \[
+      \frac{4}{3} + \frac{7}{9} - \frac{14}{9} - \frac{7}{45} = \frac{4}{3} - \frac{7}{9} - \frac{7}{45} = \frac{60 - 35 - 7}{45} = \frac{18}{45} = \frac{2}{5}
+      \]
+    \item \textbf{Quarta espressione:}
+      Semplifichiamo $\frac{3}{6} = \frac{1}{2}$ nella prima tonda e la calcoliamo:
+      \[
+      \frac{1}{2} + 3 - \frac{7}{4} = \frac{2 + 12 - 7}{4} = \frac{7}{4}
+      \]
+      Semplifichiamo $\frac{10}{12} = \frac{5}{6}$ nella tonda interna alla quadra e la calcoliamo:
+      \[
+      \frac{1}{6} + \frac{3}{4} + 1 - \frac{5}{6} = \frac{3}{4} + 1 - \frac{4}{6} = \frac{3}{4} + 1 - \frac{2}{3} = \frac{9 + 12 - 8}{12} = \frac{13}{12}
+      \]
+      Risolviamo la parentesi quadra:
+      \[
+      \left[ \frac{5}{3} - \frac{13}{12} \right] = \frac{20-13}{12} = \frac{7}{12}
+      \]
+      Eseguiamo il calcolo finale:
+      \[
+      \frac{2}{3} + \frac{5}{4} - \frac{7}{4} + \frac{7}{12} = \frac{2}{3} - \frac{2}{4} + \frac{7}{12} = \frac{2}{3} - \frac{1}{2} + \frac{7}{12} = \frac{8-6+7}{12} = \frac{9}{12} = \frac{3}{4}
+      \]
+    \item Svolgiamo prima la tonda interna:
+      \[
+      \frac{7}{12} + \frac{2}{3} + 2 - \left[ \frac{7}{4} - \frac{5}{6} - \left( 1 - \frac{1}{2} \right) \right] - \frac{5}{6}
+      \]
+      Troviamo il comune denominatore nella quadra (12):
+      \[
+      \frac{7}{12} + \frac{2}{3} + 2 - \left[ \frac{21-10-6}{12} \right] - \frac{5}{6} = \frac{7}{12} + \frac{2}{3} + 2 - \frac{5}{12} - \frac{5}{6}
+      \]
+      Eseguiamo i calcoli finali con comune denominatore (12):
+      \[
+      \frac{7 + 8 + 24 - 5 - 10}{12} = \frac{24}{12} = 2
+      \]
+    \item Svolgiamo prima le tre parentesi tonde:
+      1. $\frac{11}{4} - \frac{7}{5} = \frac{55-28}{20} = \frac{27}{20}$ \\
+      2. $1 - \frac{1}{3} - \frac{1}{2} = \frac{6-2-3}{6} = \frac{1}{6}$ \\
+      3. $\frac{8}{5} - \frac{7}{6} = \frac{48-35}{30} = \frac{13}{30}$ \\
+      Inseriamo i risultati nella quadra e troviamo il denominatore comune (60):
+      \[
+      \frac{11}{12} + \left[ \frac{27}{20} - \frac{1}{6} - \frac{13}{30} \right] = \frac{11}{12} + \left[ \frac{81-10-26}{60} \right] = \frac{11}{12} + \frac{45}{60} = \frac{11}{12} + \frac{3}{4} = \frac{11+9}{12} = \frac{20}{12} = \frac{5}{3}
+      \]
+    \item Svolgiamo prima le tre parentesi tonde:
+      1. $\frac{5}{6} - \frac{2}{3} = \frac{5-4}{6} = \frac{1}{6}$ \\
+      2. $\frac{7}{5} - \frac{4}{3} = \frac{21-20}{15} = \frac{1}{15}$ \\
+      3. $1 - \frac{2}{5} = \frac{3}{5}$ \\
+      Inseriamo i risultati nella quadra e troviamo il denominatore comune (60):
+      \[
+      4 - \left[ \frac{9}{12} + \frac{1}{6} - \frac{1}{15} \right] - \frac{3}{5} = 4 - \left[ \frac{45+10-4}{60} \right] - \frac{3}{5} = 4 - \frac{51}{60} - \frac{3}{5} = 4 - \frac{17}{20} - \frac{3}{5} = \frac{80-17-12}{20} = \frac{51}{20}
+      \]
+    \item Svolgiamo le singole parentesi tonde ed eseguiamo le operazioni interne:
+      1. $\frac{1}{2} + \frac{3}{2} - \frac{5}{4} = \frac{2+6-5}{4} = \frac{3}{4}$ \\
+      2. $\frac{1}{3} - \frac{1}{6} = \frac{1}{6}$ \ e \ $\frac{3}{2} - \frac{2}{3} = \frac{5}{6}$ \\
+      3. $1 + \frac{1}{2} = \frac{3}{2}$ \\
+      Sostituiamo e semplifichiamo:
+      * Prima quadra: $\left[ \frac{1}{2} + \frac{3}{4} - \frac{3}{4} \right] = \frac{1}{2}$ \\
+      * Seconda quadra: $\left[ \frac{1}{6} + \frac{5}{6} \right] = \frac{6}{6} = 1$ \\
+      Eseguiamo il calcolo finale: $\frac{1}{2} + 1 - \frac{3}{2} = \frac{1+2-3}{2} = 0$
+    \item Risolviamo le due parentesi tonde interne:
+      1. $\frac{1}{4} + \frac{5}{6} + \frac{13}{2} = \frac{3+10+78}{12} = \frac{91}{12}$ \\
+      2. $\frac{11}{4} + \frac{3}{8} + \frac{7}{6} = \frac{66+9+28}{24} = \frac{103}{24}$ \\
+      Risolviamo le due quadre:
+      * Prima quadra: $\left[ \frac{91}{12} - \frac{79}{12} \right] = \frac{12}{12} = 1$ \\
+      * Seconda quadra: $\left[ \frac{103}{24} - \frac{101}{24} \right] = \frac{2}{24} = \frac{1}{12}$ \\
+      Risolviamo la graffa ed eseguiamo l'operazione finale:
+      \[
+      \left\{ 1 + \frac{1}{12} \right\} - \frac{1}{12} = \frac{13}{12} - \frac{1}{12} = \frac{12}{12} = 1
+      \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+
+\section*{4. Problemi con le frazioni}
+
+\begin{esercizio}{La torta di compleanno di Giulia}
+Per festeggiare il suo compleanno con gli amici, Giulia prepara una grande torta al cioccolato che pesa $1{,}2\unita{kg}$. Durante la festa:
+\begin{itemize}
+  \item le ragazze presenti mangiano complessivamente i $\frac{2}{5}$ della torta;
+  \item i ragazzi presenti mangiano complessivamente il $\frac{1}{3}$ della torta;
+  \item l'insegnante di matematica, invitata alla festa, ne mangia $\frac{1}{10}$.
+\end{itemize}
+
+\domanda{a) Quale frazione di torta è stata mangiata in totale?}\\
+\domanda{b) Quale frazione di torta rimane per i genitori di Giulia?}\\
+\domanda{c) Quanti grammi di torta sono rimasti per i genitori?}
+
+\responsespace{5.5cm}
+
+\begin{soluzione}
+  \textbf{Rappresentazione visiva con i blocchetti (totale diviso in 30 parti):}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.85]
+    \fill[blue!20!white] (0,0) rectangle (3.0, 0.4); % 12 blocks for Girls (2/5 = 12/30)
+    \fill[orange!25!white] (3.0,0) rectangle (5.5, 0.4); % 10 blocks for Boys (1/3 = 10/30)
+    \fill[red!20!white] (5.5,0) rectangle (6.25, 0.4); % 3 blocks for Teacher (1/10 = 3/30)
+    \fill[green!20!white] (6.25,0) rectangle (7.5, 0.4); % 5 blocks for Parents (1/6 = 5/30)
+    \draw[thick, mainblue] (0,0) rectangle (7.5,0.4);
+    \foreach \x in {1,...,29} {
+      \draw[linegray, thin] (0.25*\x, 0) -- (0.25*\x, 0.4);
+    }
+    \node[scale=0.75] at (1.5, 0.2) {\textbf{Ragazze} ($\frac{12}{30}$)};
+    \node[scale=0.75] at (4.25, 0.2) {\textbf{Ragazzi} ($\frac{10}{30}$)};
+    \node[scale=0.7] at (5.875, 0.2) {\textbf{Prof} ($\frac{3}{30}$)};
+    \node[scale=0.75] at (6.875, 0.2) {\textbf{Genitori} ($\frac{5}{30}$)};
+  \end{tikzpicture}
+  \end{center}
+
+  \textbf{Passaggi risolutivi:}
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Frazione totale consumata:} Sommiamo le frazioni mangiate dagli invitati. Il comune denominatore tra $5$, $3$ e $10$ è $30$:
+      \[
+      \frac{2}{5} + \frac{1}{3} + \frac{1}{10} = \frac{12}{30} + \frac{10}{30} + \frac{3}{30} = \frac{12+10+3}{30} = \frac{25}{30} = \frac{5}{6}
+      \]
+      In totale è stata consumata la frazione $\frac{5}{6}$ della torta.
+    \item \textbf{Frazione rimasta:} Sottraiamo la frazione consumata dall'intera torta ($1$):
+      \[
+      1 - \frac{5}{6} = \frac{6}{6} - \frac{5}{6} = \frac{1}{6}
+      \]
+      Ai genitori rimane la frazione $\frac{1}{6}$ della torta.
+    \item \textbf{Quantità in grammi:}
+      \begin{itemize}
+        \item Convertiamo il peso della torta in grammi: $1{,}2\unita{kg} = 1200\unita{g}$.
+        \item Calcoliamo la parte rimasta:
+          \[
+          1200\unita{g} \times \frac{1}{6} = \frac{1200}{6}\unita{g} = 200\unita{g}
+          \]
+      \end{itemize}
+  \end{enumerate}
+  \textbf{Risposta:} a) In totale è stata consumata la frazione $\frac{5}{6}$ della torta; b) Rimane la frazione $\frac{1}{6}$; c) Ai genitori sono rimasti $200\unita{g}$ di torta.
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+
+\begin{esercizio}{La spesa al mercato}
+La mamma va al mercato per fare la spesa settimanale con una somma iniziale di denaro. Spende:
+\begin{itemize}
+  \item i $\frac{2}{7}$ del denaro totale dal fruttivendolo per acquistare frutta e verdura;
+  \item i $\frac{3}{14}$ del denaro totale dal panettiere per pane e focaccia.
+\end{itemize}
+
+\domanda{a) Quale frazione del denaro iniziale ha speso complessivamente la mamma?}\\
+\domanda{b) Quale frazione di denaro le rimane nel portafoglio?}\\
+\domanda{c) Se inizialmente la mamma aveva nel portafoglio $56$ euro, quanti euro le rimangono alla fine della spesa?}
+
+\responsespace{5.5cm}
+
+\begin{soluzione}
+  \textbf{Rappresentazione visiva con i blocchetti (totale diviso in 14 parti):}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.85]
+    \fill[blue!20!white] (0,0) rectangle (2.0, 0.4); % 4 blocks for Fruttivendolo (2/7 = 4/14)
+    \fill[orange!25!white] (2.0,0) rectangle (3.5, 0.4); % 3 blocks for Panettiere (3/14)
+    \fill[green!20!white] (3.5,0) rectangle (7.0, 0.4); % 7 blocks Rimanenti (1/2 = 7/14)
+    \draw[thick, mainblue] (0,0) rectangle (7.0, 0.4);
+    \foreach \x in {1,...,13} {
+      \draw[linegray, thin] (0.5*\x, 0) -- (0.5*\x, 0.4);
+    }
+    \node[scale=0.75] at (1.0, 0.2) {\textbf{Fruttivendolo} ($\frac{4}{14}$)};
+    \node[scale=0.75] at (2.75, 0.2) {\textbf{Panettiere} ($\frac{3}{14}$)};
+    \node[scale=0.75] at (5.25, 0.2) {\textbf{Denaro rimanente} ($\frac{7}{14} = \frac{1}{2}$)};
+  \end{tikzpicture}
+  \end{center}
+
+  \textbf{Passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Frazione di denaro spesa:} Sommiamo le due spese parziali. Il comune denominatore tra $7$ e $14$ è $14$:
+      \[
+      \frac{2}{7} + \frac{3}{14} = \frac{4}{14} + \frac{3}{14} = \frac{4+3}{14} = \frac{7}{14} = \frac{1}{2}
+      \]
+      Complessivamente la mamma ha speso la frazione $\frac{1}{2}$ (esattamente la metà) del suo budget.
+    \item \textbf{Frazione di denaro rimanente:} Sottraiamo la frazione spesa dal totale ($1$):
+      \[
+      1 - \frac{1}{2} = \frac{2}{2} - \frac{1}{2} = \frac{1}{2}
+      \]
+      Le rimane la frazione $\frac{1}{2}$ della somma iniziale.
+    \item \textbf{Calcolo dell'importo rimanente in euro (budget = $56$ euro):}
+      \begin{itemize}
+        \item Calcoliamo la metà di $56$ euro:
+          \[
+          56\text{ euro} \times \frac{1}{2} = \frac{56}{2}\text{ euro} = 28\text{ euro}
+          \]
+      \end{itemize}
+  \end{enumerate}
+  \textbf{Risposta:} a) Ha speso la frazione $\frac{1}{2}$ del denaro totale; b) Le rimane la frazione $\frac{1}{2}$ del denaro; c) Nel portafoglio le rimangono esattamente $28$ euro.
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+
+\begin{esercizio}{La gita scolastica}
+Durante la gita scolastica di primavera della classe 2B, il viaggio totale per raggiungere il parco naturale è suddiviso nel seguente modo:
+\begin{itemize}
+  \item i $\frac{3}{5}$ del tragitto totale vengono percorsi in treno;
+  \item il $\frac{1}{4}$ del tragitto totale viene percorso in autobus;
+  \item la parte rimanente del viaggio viene percorsa a piedi lungo un sentiero naturalistico.
+\end{itemize}
+
+\domanda{a) Quale frazione del viaggio totale è coperta da treno e autobus insieme?}\\
+\domanda{b) Quale frazione del viaggio viene percorsa a piedi?}\\
+\domanda{c) Se il tragitto complessivo è lungo $80\unita{km}$, quanti chilometri percorrono a piedi?}
+
+\responsespace{5.5cm}
+
+\begin{soluzione}
+  \textbf{Rappresentazione visiva con i blocchetti (totale diviso in 20 parti):}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.85]
+    \fill[blue!20!white] (0,0) rectangle (4.8, 0.4); % 12 blocks for Treno (3/5 = 12/20)
+    \fill[orange!25!white] (4.8,0) rectangle (6.8, 0.4); % 5 blocks for Autobus (1/4 = 5/20)
+    \fill[green!20!white] (6.8,0) rectangle (8.0, 0.4); % 3 blocks a piedi (3/20)
+    \draw[thick, mainblue] (0,0) rectangle (8.0, 0.4);
+    \foreach \x in {1,...,19} {
+      \draw[linegray, thin] (0.4*\x, 0) -- (0.4*\x, 0.4);
+    }
+    \node[scale=0.75] at (2.4, 0.2) {\textbf{Treno} ($\frac{12}{20}$)};
+    \node[scale=0.75] at (5.8, 0.2) {\textbf{Autobus} ($\frac{5}{20}$)};
+    \node[scale=0.75] at (7.4, 0.2) {\textbf{A piedi} ($\frac{3}{20}$)};
+  \end{tikzpicture}
+  \end{center}
+
+  \textbf{Passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Frazione treno + autobus:} Sommiamo le due frazioni del viaggio. Il comune denominatore tra $5$ e $4$ è $20$:
+      \[
+      \frac{3}{5} + \frac{1}{4} = \frac{12}{20} + \frac{5}{20} = \frac{17}{20}
+      \]
+      Treno e autobus coprono insieme i $\frac{17}{20}$ del percorso totale.
+    \item \textbf{Frazione a piedi:} Sottraiamo dal totale della gita ($1$):
+      \[
+      1 - \frac{17}{20} = \frac{20}{20} - \frac{17}{20} = \frac{3}{20}
+      \]
+      La parte a piedi corrisponde ai $\frac{3}{20}$ del viaggio complessivo.
+    \item \textbf{Distanza a piedi:}
+      \begin{itemize}
+        \item Calcoliamo la distanza in km sapendo che l'intero tragitto misura $80\unita{km}$:
+          \[
+          80\unita{km} \times \frac{3}{20} = \frac{80 \times 3}{20}\unita{km} = 4 \times 3\unita{km} = 12\unita{km}
+          \]
+      \end{itemize}
+  \end{enumerate}
+  \textbf{Risposta:} a) I $\frac{17}{20}$ del percorso totale; b) I $\frac{3}{20}$ del percorso; c) Percorrono $12\unita{km}$ a piedi.
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+
+\section*{5. Sfide}
+
+\begin{esercizio}{Come arriviamo a scuola?}
+In una classe di 24 alunni, si analizzano i mezzi che gli studenti usano per raggiungere la scuola:
+\begin{itemize}
+  \item la metà degli alunni ($\frac{1}{2}$) raggiunge la scuola a piedi;
+  \item un terzo degli alunni ($\frac{1}{3}$) usa di solito la bicicletta;
+  \item i restanti alunni utilizzano i mezzi pubblici.
+\end{itemize}
+
+\domanda{a) Quale frazione degli alunni rappresenta il terzo gruppo che usa i mezzi pubblici?}\\
+\domanda{b) Calcola quanti alunni fanno parte di ciascuno dei tre gruppi.}
+
+\responsespace{5.5cm}
+
+\begin{soluzione}
+  \textbf{Rappresentazione visiva con i blocchetti (totale diviso in 6 parti):}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.85]
+    \fill[blue!20!white] (0,0) rectangle (3.0, 0.4); % 3 blocks for A piedi (1/2 = 3/6)
+    \fill[orange!25!white] (3.0,0) rectangle (5.0, 0.4); % 2 blocks for Bicicletta (1/3 = 2/6)
+    \fill[green!20!white] (5.0,0) rectangle (6.0, 0.4); % 1 block for Mezzi pubblici (1/6)
+    \draw[thick, mainblue] (0,0) rectangle (6.0, 0.4);
+    \foreach \x in {1,...,5} {
+      \draw[linegray, thin] (1.0*\x, 0) -- (1.0*\x, 0.4);
+    }
+    \node[scale=0.75] at (1.5, 0.2) {\textbf{A piedi} ($\frac{3}{6}$)};
+    \node[scale=0.75] at (4.0, 0.2) {\textbf{Bici} ($\frac{2}{6}$)};
+    \node[scale=0.75] at (5.5, 0.2) {\textbf{Mezzi} ($\frac{1}{6}$)};
+  \end{tikzpicture}
+  \end{center}
+
+  \textbf{Passaggi risolutivi:}
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Frazione dei mezzi pubblici:} Sommiamo le frazioni di chi va a piedi e in bici. Il comune denominatore tra $2$ e $3$ è $6$:
+      \[
+      \frac{1}{2} + \frac{1}{3} = \frac{3}{6} + \frac{2}{6} = \frac{5}{6}
+      \]
+      La parte restante che usa i mezzi pubblici è:
+      \[
+      1 - \frac{5}{6} = \frac{6}{6} - \frac{5}{6} = \frac{1}{6}
+      \]
+      Il terzo gruppo corrisponde alla frazione $\frac{1}{6}$ dell'intera classe.
+    \item \textbf{Numero di alunni per gruppo (totale = 24 allievi):}
+      \begin{itemize}
+        \item \textbf{A piedi:} $24 \times \frac{1}{2} = 12$ alunni.
+        \item \textbf{In bicicletta:} $24 \times \frac{1}{3} = 8$ alunni.
+        \item \textbf{Mezzi pubblici:} $24 \times \frac{1}{6} = 4$ alunni.
+      \end{itemize}
+      Verifica: $12 + 8 + 4 = 24$ alunni.
+  \end{enumerate}
+  \textbf{Risposta:} a) I mezzi pubblici rappresentano la frazione $\frac{1}{6}$; b) Ci sono $12$ alunni a piedi, $8$ alunni in bicicletta e $4$ alunni con i mezzi pubblici.
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{La staffetta di atletica}
+Tre studenti Matteo, Sofia e Luca partecipano ad una corsa a staffetta sulla pista della scuola, che è lunga in totale $400\unita{m}$. La ripartizione della corsa è la seguente:
+\begin{itemize}
+  \item Sofia corre una distanza pari al \textbf{doppio} di quella corsa da Matteo;
+  \item Luca corre la parte rimanente della pista, che corrisponde esattamente ad un quarto ($\frac{1}{4}$) del totale.
+\end{itemize}
+
+\domanda{a) Osserva lo schema a blocchetti qui sotto: spiega a parole perché la corsa di Sofia corrisponde a metà dell'intero percorso.}\\
+\domanda{b) Calcola quanti metri corre ciascuno dei tre studenti.}
+
+\vspace{0.4cm}
+\begin{center}
+\begin{tikzpicture}[scale=1.0]
+  % Overall block representation
+  \draw[thick, mainblue] (0,0) rectangle (8,0.8);
+  
+  % Internal divisions
+  \draw[thick, mainblue] (2,0) -- (2,0.8);
+  \draw[thick, mainblue] (6,0) -- (6,0.8);
+  \draw[dashed, linegray] (4,0) -- (4,0.8); % Sofia's half line for reference
+  
+  % Annotations below the bar for student/solution
+  \ifsoluzioni
+    \fill[blue!15!white] (0,0) rectangle (2,0.8);
+    \fill[orange!15!white] (2,0) rectangle (6,0.8);
+    \fill[green!15!white] (6,0) rectangle (8,0.8);
+    
+    \draw[thick, mainblue] (0,0) rectangle (8,0.8);
+    \draw[thick, mainblue] (2,0) -- (2,0.8);
+    \draw[thick, mainblue] (6,0) -- (6,0.8);
+    
+    \node at (1,0.4) {\small\textbf{Matteo}};
+    \node at (1,-0.4) {\small $\frac{1}{4}$ ($100\unita{m}$)};
+    
+    \node at (4,0.4) {\small\textbf{Sofia}};
+    \node at (4,-0.4) {\small $\frac{1}{2}$ ($200\unita{m}$)};
+    
+    \node at (7,0.4) {\small\textbf{Luca}};
+    \node at (7,-0.4) {\small $\frac{1}{4}$ ($100\unita{m}$)};
+  \else
+    \node at (1,0.4) {\small\textbf{Matteo}};
+    \node at (4,0.4) {\small\textbf{Sofia}};
+    \node at (7,0.4) {\small\textbf{Luca}};
+  \fi
+\end{tikzpicture}
+\end{center}
+
+\responsespace{5.5cm}
+
+\begin{soluzione}
+  \textbf{Svolgimento e ragionamento:}
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Ragionamento con i blocchetti (Spiegazione):} Poiché a Luca spetta $\frac{1}{4}$ del tracciato (l'ultimo blocco), la parte restante per Matteo e Sofia insieme è $1 - \frac{1}{4} = \frac{3}{4}$ della pista.
+      Sapendo che Sofia corre il doppio di Matteo, possiamo dividere questa parte restante ($\frac{3}{4}$) in $3$ blocchi di uguale lunghezza: $1$ per Matteo e $2$ per Sofia.
+      \begin{itemize}
+        \item Ciascun blocco corrisponde a: $\frac{3}{4} : 3 = \frac{1}{4}$ della pista totale.
+        \item Di conseguenza, Matteo corre $\frac{1}{4}$, Sofia corre $2$ blocchi cioè $2 \times \frac{1}{4} = \frac{2}{4} = \frac{1}{2}$ (che corrisponde esattamente a **metà dell'intero percorso**!), e Luca corre $\frac{1}{4}$.
+      \end{itemize}
+    \item \textbf{Calcolo delle distanze reali (totale = $400\unita{m}$):}
+      Utilizzando lo schema a blocchi o le frazioni ricavate:
+      \begin{itemize}
+        \item \textbf{Matteo:} corre $\frac{1}{4}$ del percorso: $400\unita{m} \times \frac{1}{4} = 100\unita{m}$.
+        \item \textbf{Sofia:} corre $\frac{1}{2}$ del percorso: $400\unita{m} \times \frac{1}{2} = 200\unita{m}$.
+        \item \textbf{Luca:} corre $\frac{1}{4}$ del percorso: $400\unita{m} \times \frac{1}{4} = 100\unita{m}$.
+      \end{itemize}
+      Verifica: $100\unita{m} + 200\unita{m} + 100\unita{m} = 400\unita{m}$.
+  \end{enumerate}
+  \textbf{Risposta:} a) Sofia corre metà percorso ($\frac{1}{2}$) perché togliendo la quota di Luca ($\frac{1}{4}$) i restanti $\frac{3}{4}$ sono divisi in 3 blocchi uguali (1 per Matteo, 2 per Sofia); b) Matteo corre $100\unita{m}$, Sofia corre $200\unita{m}$, Luca corre $100\unita{m}$.
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Il livello del serbatoio d'acqua}
+Un serbatoio per la raccolta dell'acqua piovana dell'orto scolastico è riempito fino a una frazione ignota $F$ della sua capacità totale. Durante una notte di pioggia avvengono due fatti:
+\begin{itemize}
+  \item l'acqua piovana fa aumentare l'acqua già presente nel serbatoio di \textbf{un quarto del suo stesso volume} (quindi si aggiunge $\frac{1}{4}$ dell'acqua già presente);
+  \item il canale di gronda del tetto convoglia nel serbatoio una quantità d'acqua pari a \textbf{un decimo ($\frac{1}{10}$) della capacità totale} del serbatoio.
+\end{itemize}
+Al mattino, il serbatoio si trova riempito esattamente per i tre quinti ($\frac{3}{5}$) della sua capacità totale.
+
+\domanda{a) Trova la frazione iniziale $F$ d'acqua nel serbatoio prima della pioggia (puoi aiutarti impostando un'uguaglianza descrittiva con le frazioni).}\\
+\domanda{b) Se il serbatoio contiene in totale $2000$ litri quando è pieno, quanti litri d'acqua c'erano all'inizio? Quanti litri sono stati aggiunti complessivamente durante la notte?}
+
+\responsespace{6.5cm}
+
+\begin{soluzione}
+  \textbf{Svolgimento e ragionamento:}
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Calcolo della frazione iniziale F:}
+      Impostiamo una semplice uguaglianza a parole e poi con le frazioni:
+      \begin{itemize}
+        \item Frazione iniziale d'acqua: $F$.
+        \item Aumento dovuto alla pioggia diretta: $\frac{1}{4}$ del volume preesistente, ossia $\frac{1}{4} \times F$. L'acqua iniziale più l'aumento diretto diventa:
+          \[
+          F + \frac{1}{4}F = \frac{5}{4}F
+          \]
+        \item Aggiunta costante della grondaia: $\frac{1}{10}$ della capacità totale.
+        \item Frazione finale al mattino: $\frac{3}{5}$.
+      \end{itemize}
+      L'uguaglianza che descrive la situazione è:
+      \[
+      \frac{5}{4}F + \frac{1}{10} = \frac{3}{5}
+      \]
+      Isoliamo il termine $F$ portando $\frac{1}{10}$ a destra. Il comune denominatore tra $5$ e $10$ è $10$:
+      \[
+      \frac{5}{4}F = \frac{3}{5} - \frac{1}{10} \implies \frac{5}{4}F = \frac{6}{10} - \frac{1}{10} \implies \frac{5}{4}F = \frac{5}{10} = \frac{1}{2}
+      \]
+      Ora troviamo $F$ moltiplicando la frazione per il reciproco $\frac{4}{5}$:
+      \[
+      F = \frac{1}{2} \times \frac{4}{5} = \frac{4}{10} = \frac{2}{5}
+      \]
+      Prima della pioggia, il serbatoio era pieno per i $\frac{2}{5}$ della sua capacità totale.
+    \item \textbf{Calcolo dei litri (capacità totale = $2000\unita{l}$):}
+      Utilizzando la frazione iniziale $F = \frac{2}{5}$ e finale $\frac{3}{5}$:
+      \begin{itemize}
+        \item \textbf{Volume iniziale d'acqua:} $\frac{2}{5} \times 2000\unita{l} = 2 \times 400\unita{l} = 800\unita{l}$.
+        \item \textbf{Volume finale d'acqua:} $\frac{3}{5} \times 2000\unita{l} = 3 \times 400\unita{l} = 1200\unita{l}$.
+        \item \textbf{Litri totali aggiunti:} $1200\unita{l} - 800\unita{l} = 400\unita{l}$.
+      \end{itemize}
+  \end{enumerate}
+  \textbf{Risposta:} a) Frazione iniziale $F = \frac{2}{5}$; b) All'inizio c'erano $800$ litri d'acqua; in totale sono stati aggiunti $400$ litri durante la notte.
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Il disegno misterioso}
+Esegui i seguenti calcoli di riepilogo con le frazioni e riduci sempre i risultati ai minimi termini. Colorando nella figura sottostante solo i settori che contengono i risultati esatti che hai trovato, scoprirai una vignetta misteriosa!
+
+\vspace{0.3cm}
+\renewcommand{\arraystretch}{2.25}
+\begin{tabularx}{\linewidth}{XX}
+  1) $\frac{3}{4} + \frac{2}{5} = \fillbox{2.2cm}$ & 2) $\frac{2}{7} + \frac{1}{3} = \fillbox{2.2cm}$ \\
+  3) $\frac{5}{8} - \frac{1}{6} = \fillbox{2.2cm}$ & 4) $\frac{3}{2} - \frac{5}{9} = \fillbox{2.2cm}$ \\
+  5) $\frac{4}{5} - \frac{13}{20} = \fillbox{2.2cm}$ & 6) $\frac{1}{2} + \frac{2}{5} - \frac{3}{20} = \fillbox{2.2cm}$ \\
+  7) $\frac{5}{6} + \left[ \frac{3}{4} - \frac{1}{3} \right] = \fillbox{2.2cm}$ & 8) $\frac{10}{7} - \left[ \frac{2}{3} - \frac{4}{21} \right] = \fillbox{2.2cm}$ \\
+  9) $4 - \left[ \frac{5}{6} + \frac{1}{3} - \frac{3}{4} \right] = \fillbox{2.2cm}$ & 10) $\left[ \frac{7}{6} - \frac{1}{4} \right] - \frac{5}{12} = \fillbox{2.2cm}$ \\
+  11) $\left[ \frac{10}{16} + \frac{8}{20} \right] - \left[ \frac{6}{12} - \frac{5}{25} \right] = \fillbox{2.2cm}$ & 12) $\frac{10}{50} + \frac{6}{36} + \frac{8}{48} = \fillbox{2.2cm}$ \\
+  13) $\frac{24}{3} + \frac{9}{27} = \fillbox{2.2cm}$ & 14) $4 - \left[ \frac{4}{5} + \frac{7}{10} + \frac{5}{6} \right] = \fillbox{2.2cm}$ \\
+\end{tabularx}
+\vspace{0.4cm}
+
+\immagine[8.5cm]{vignetta}
+
+\responsespace{0.5cm}
+
+\begin{soluzione}
+  \textbf{Risultati esatti dei 14 calcoli (ridotti ai minimi termini):}
+  \begin{enumerate}[label=\arabic*)]
+    \item $\frac{3}{4} + \frac{2}{5} = \frac{15+8}{20} = \frac{23}{20}$
+    \item $\frac{2}{7} + \frac{1}{3} = \frac{6+7}{21} = \frac{13}{21}$
+    \item $\frac{5}{8} - \frac{1}{6} = \frac{15-4}{24} = \frac{11}{24}$
+    \item $\frac{3}{2} - \frac{5}{9} = \frac{27-10}{18} = \frac{17}{18}$
+    \item $\frac{4}{5} - \frac{13}{20} = \frac{16-13}{20} = \frac{3}{20}$
+    \item $\frac{1}{2} + \frac{2}{5} - \frac{3}{20} = \frac{10+8-3}{20} = \frac{15}{20} = \frac{3}{4}$
+    \item $\frac{5}{6} + \left[ \frac{3}{4} - \frac{1}{3} \right] = \frac{5}{6} + \frac{9-4}{12} = \frac{5}{6} + \frac{5}{12} = \frac{10+5}{12} = \frac{15}{12} = \frac{5}{4}$
+    \item $\frac{10}{7} - \left[ \frac{2}{3} - \frac{4}{21} \right] = \frac{10}{7} - \frac{14-4}{21} = \frac{10}{7} - \frac{10}{21} = \frac{30-10}{21} = \frac{20}{21}$
+    \item $4 - \left[ \frac{5}{6} + \frac{1}{3} - \frac{3}{4} \right] = 4 - \frac{10+4-9}{12} = 4 - \frac{5}{12} = \frac{48-5}{12} = \frac{43}{12}$
+    \item $\left[ \frac{7}{6} - \frac{1}{4} \right] - \frac{5}{12} = \frac{14-3}{12} - \frac{5}{12} = \frac{11-5}{12} = \frac{6}{12} = \frac{1}{2}$
+    \item $\left[ \frac{10}{16} + \frac{8}{20} \right] - \left[ \frac{6}{12} - \frac{5}{25} \right] = \left[ \frac{5}{8} + \frac{2}{5} \right] - \left[ \frac{1}{2} - \frac{1}{5} \right] = \frac{25+16}{40} - \frac{5-2}{10} = \frac{41}{40} - \frac{3}{10} = \frac{41-12}{40} = \frac{29}{40}$
+    \item $\frac{10}{50} + \frac{6}{36} + \frac{8}{48} = \frac{1}{5} + \frac{1}{6} + \frac{1}{6} = \frac{1}{5} + \frac{2}{6} = \frac{1}{5} + \frac{1}{3} = \frac{3+5}{15} = \frac{8}{15}$
+    \item $\frac{24}{3} + \frac{9}{27} = 8 + \frac{1}{3} = \frac{24+1}{3} = \frac{25}{3}$
+    \item $4 - \left[ \frac{4}{5} + \frac{7}{10} + \frac{5}{6} \right] = 4 - \frac{24+21+25}{30} = \frac{5}{3}$
+  \end{enumerate}
+  \textbf{Vignetta:} Colorando solo le sezioni corrispondenti a questi 14 risultati esatti, si completerà il disegno della vignetta (che rappresenta una simpatica lucertola/drago tra le foglie).
+\end{soluzione}
+\end{esercizio}
