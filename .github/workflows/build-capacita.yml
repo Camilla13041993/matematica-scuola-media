@@ -17,11 +17,11 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: main.tex
+          root_file: 01_esercitazione_capacita.tex
           working_directory: 1_prima/grandezze_misure/capacita_volume/comune/01_esercitazione_capacita
 
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: esercitazione-capacita-pdf
-          path: 1_prima/grandezze_misure/capacita_volume/comune/01_esercitazione_capacita/main.pdf
+          path: 1_prima/grandezze_misure/capacita_volume/comune/01_esercitazione_capacita/01_esercitazione_capacita.pdf
