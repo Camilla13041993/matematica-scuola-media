@@ -41,11 +41,11 @@ Per festeggiare la fine dell'anno scolastico, la classe decide di preparare un c
     
     % 2/6 orange juice (orange) from y=0.75 to y=2.25
     \path[fill=orange!35!white] (0,0.75) to[out=-20,in=200] (3,0.75) -- (3, 2.25) to[out=200,in=-20] (0, 2.25) -- cycle;
-    \draw[black] (1.5, 1.5) node {\small Succo d'arancia ($\frac{1}{3}\unita{l}$)};
+    \draw[<-] (1.5, 1.5) -- (-0.8, 1.5) node[left, scale=0.8] {Succo d'arancia ($\frac{1}{3}\unita{l}$)};
     
     % 3/6 apple juice (yellow) from y=2.25 to y=4.5
     \path[fill=yellow!30!white] (0,2.25) to[out=-20,in=200] (3,2.25) -- (3, 4.5) to[out=200,in=-20] (0, 4.5) -- cycle;
-    \draw[black] (1.5, 3.375) node {\small Succo di mela ($\frac{1}{2}\unita{l}$)};
+    \draw[<-] (1.5, 3.375) -- (3.8, 3.375) node[right, scale=0.8] {Succo di mela ($\frac{1}{2}\unita{l}$)};
     
     % Ellipses for liquid layers
     \draw[red!80!black, fill=red!30!white, opacity=0.8] (1.5,0.75) ellipse (1.5 and 0.15);
@@ -88,9 +88,13 @@ Per festeggiare la fine dell'anno scolastico, la classe decide di preparare un c
   fonttitle=\bfseries\large,
   arc=2mm,
   boxrule=1pt,
-  left=4mm, right=4mm, top=3mm, bottom=3mm
-]
-Per sommare due frazioni dobbiamo avere parti della stessa grandezza. \textbf{Perché dobbiamo trovare lo stesso denominatore?} Non possiamo sommare parti di misure diverse (come metà e terzi). Calcolando il \textbf{m.c.m.} (minimo comune multiplo) dividiamo gli interi in parti della \textbf{stessa identica misura}. Solo a questo punto possiamo sommare i numeratori!
+  left=4mm, right=4mm, top=3mm, bottom=3mm]
+Per sommare due frazioni:
+
+\vspace{0.1cm}
+\noindent\colorbox{red!5}{%
+\parbox{0.965\linewidth}{\vspace{0.1cm}\textbf{Attenzione!} Non possiamo sommare frazioni con parti di grandezza diversa (denominatori diversi). Dobbiamo prima trasformarle in frazioni equivalenti con lo stesso denominatore (calcolando il m.c.m.).\vspace{0.1cm}}}
+\vspace{0.1cm}
 
 \begin{center}
 \begin{tikzpicture}[scale=0.95, every node/.style={scale=0.95}]
@@ -124,8 +128,8 @@ Esempio di calcolo:
 $$\frac{1}{2} + \frac{1}{3}$$
 \begin{enumerate}[label=\arabic*., leftmargin=1.5cm, noitemsep]
   \item Denominatore comune (m.c.m. tra 2 e 3): \textbf{6}
-  \item Adatta i numeratori:
-    $$\frac{1}{2} = \frac{1 \cdot 3}{6} = \frac{3}{6} \qquad \text{e} \qquad \frac{1}{3} = \frac{1 \cdot 2}{6} = \frac{2}{6}$$
+  \item Adatta i numeratori e i denominatori:
+    $$\frac{1}{2} = \frac{1 \cdot 3}{2 \cdot 3} = \frac{3}{6} \qquad \text{e} \qquad \frac{1}{3} = \frac{1 \cdot 2}{3 \cdot 2} = \frac{2}{6}$$
   \item Somma i numeratori:
     $$\frac{3}{6} + \frac{2}{6} = \frac{5}{6}$$
 \end{enumerate}
@@ -299,7 +303,12 @@ Associa ciascuna operazione a sinistra con il suo risultato corretto a destra co
   boxrule=1pt,
   left=4mm, right=4mm, top=3mm, bottom=3mm
 ]
-Anche per sottrarre due frazioni dobbiamo avere parti della stessa grandezza. \textbf{Perché dobbiamo trovare lo stesso denominatore?} Non possiamo sottrarre parti di misure diverse (come terzi e sesti). Calcolando il \textbf{m.c.m.} (minimo comune multiplo) dividiamo gli interi in parti della \textbf{stessa identica misura}. Solo a questo punto possiamo sottrarre i numeratori!
+Anche per sottrarre due frazioni:
+
+\vspace{0.1cm}
+\noindent\colorbox{red!5}{%
+\parbox{0.965\linewidth}{\vspace{0.1cm}\textbf{Attenzione!} Non possiamo sottrarre frazioni con parti di grandezza diversa (denominatori diversi). Dobbiamo prima trasformarle in frazioni equivalenti con lo stesso denominatore (calcolando il m.c.m.).\vspace{0.1cm}}}
+\vspace{0.1cm}
 
 \begin{center}
 \begin{tikzpicture}[scale=0.95, every node/.style={scale=0.95}]
@@ -334,8 +343,8 @@ Esempio di calcolo:
 $$\frac{2}{3} - \frac{1}{6}$$
 \begin{enumerate}[label=\arabic*., leftmargin=1.5cm, noitemsep]
   \item Denominatore comune (m.c.m. tra 3 e 6): \textbf{6}
-  \item Adatta i numeratori:
-    $$\frac{2}{3} = \frac{2 \cdot 2}{6} = \frac{4}{6}$$
+  \item Adatta i numeratori e i denominatori:
+    $$\frac{2}{3} = \frac{2 \cdot 2}{3 \cdot 2} = \frac{4}{6}$$
   \item Sottrai i numeratori:
     $$\frac{4}{6} - \frac{1}{6} = \frac{3}{6} = \frac{1}{2}$$
 \end{enumerate}
@@ -478,25 +487,25 @@ Risolvi le seguenti espressioni con frazioni, rispettando l'ordine delle parente
 
 \begin{enumerate}[label=\alph*)]
   \item $\frac{2}{3} + \frac{5}{4} - \left(\frac{3}{6} + 3 - \frac{7}{4}\right) + \left[\frac{5}{3} - \left(\frac{1}{6} + \frac{3}{4} + 1 - \frac{10}{12}\right)\right]$
-  \responsespace{3.0cm}
+  \responsespace{4.2cm}
 
   \item $\left[2 - \frac{2}{3} + \frac{5}{12} - \left(\frac{5}{6} + \frac{7}{12} - \frac{5}{12}\right)\right] + \left(\frac{1}{2} + 6 + \frac{3}{12}\right) - 2$
-  \responsespace{3.0cm}
+  \responsespace{4.2cm}
 
   \item $\frac{4}{3} + \frac{7}{9} - \left(\frac{2}{9} + 1 + \frac{3}{15} + \frac{6}{45}\right) - \left[\frac{18}{15} - \left(1 + \frac{1}{9} - \frac{1}{15}\right)\right]$
-  \responsespace{3.0cm}
+  \responsespace{4.2cm}
 
   \item $\frac{10}{3} + \frac{3}{4} - \left(\frac{7}{12} - \frac{1}{2} + 1\right) - \left[\frac{7}{12} + 3 + \frac{1}{2} - \left(\frac{8}{3} - \frac{9}{4} + \frac{4}{6}\right)\right]$
-  \responsespace{3.0cm}
+  \responsespace{4.2cm}
 
   \item $\frac{11}{12} + \left[ \left( \frac{11}{4} - \frac{7}{5} \right) - \left( 1 - \frac{1}{3} - \frac{1}{2} \right) - \left( \frac{8}{5} - \frac{7}{6} \right) \right]$
-  \responsespace{3.0cm}
+  \responsespace{4.2cm}
 
   \item $4 - \left[ \frac{9}{12} + \left( \frac{5}{6} - \frac{2}{3} \right) - \left( \frac{7}{5} - \frac{4}{3} \right) \right] - \left( 1 - \frac{2}{5} \right)$
-  \responsespace{3.0cm}
+  \responsespace{4.2cm}
 
   \item $\left\{ \left[ \left( \frac{1}{4} + \frac{5}{6} + \frac{13}{2} \right) - \frac{79}{12} \right] + \left[ \left( \frac{11}{4} + \frac{3}{8} + \frac{7}{6} \right) - \frac{101}{24} \right] \right\} - \frac{1}{12}$
-  \responsespace{3.0cm}
+  \responsespace{4.2cm}
 \end{enumerate}
 
 \begin{soluzione}
