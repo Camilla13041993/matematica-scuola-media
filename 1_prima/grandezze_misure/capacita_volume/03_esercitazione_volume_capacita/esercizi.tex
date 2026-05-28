@@ -1,0 +1,605 @@
+% !TeX root = 03_esercitazione_volume_capacita.tex
+\begin{center}
+  {\Huge \color{mainblue}\textbf{Esercitazione: volume e capacità II}}\\[0.2cm]
+  \rule{0.82\linewidth}{0.5pt}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{esercizio}{La cisterna del rifugio alpino}
+Un rifugio alpino utilizza una cisterna a forma di parallelepipedo rettangolo per raccogliere l'acqua piovana. La cisterna è lunga $1{,}2\,\mathrm{m}$, larga $0{,}8\,\mathrm{m}$ e alta $1{,}5\,\mathrm{m}$.
+
+All'inizio dell'inverno la cisterna è riempita d'acqua fino ai $\frac{3}{4}$ della sua altezza totale. Durante la prima settimana di apertura, un gruppo di escursionisti consuma complessivamente $450\,\mathrm{l}$ di acqua.
+
+\begin{center}
+\begin{tikzpicture}[scale=2.2, x={(0.86cm,0.4cm)}, y={(-0.86cm,0.4cm)}, z={(0cm,1cm)}]
+  % Coordinate del parallelepipedo base
+  \coordinate (A) at (0,0,0);
+  \coordinate (B) at (1.2,0,0);
+  \coordinate (C) at (1.2,0.8,0);
+  \coordinate (D) at (0,0.8,0);
+  % Coordinate sommità
+  \coordinate (E) at (0,0,1.5);
+  \coordinate (F) at (1.2,0,1.5);
+  \coordinate (G) at (1.2,0.8,1.5);
+  \coordinate (H) at (0,0.8,1.5);
+  
+  % Livello acqua a 3/4 di 1.5 = 1.125
+  \coordinate (Aw) at (0,0,1.125);
+  \coordinate (Bw) at (1.2,0,1.125);
+  \coordinate (Cw) at (1.2,0.8,1.125);
+  \coordinate (Dw) at (0,0.8,1.125);
+
+  % Spigoli posteriori tratteggiati (nascosti)
+  \draw[dashed, color=gray, thick] (A) -- (D);
+  \draw[dashed, color=gray, thick] (C) -- (D);
+  \draw[dashed, color=gray, thick] (D) -- (H);
+  
+  % Riempimento acqua semi-trasparente
+  \fill[blue!15, opacity=0.5] (0,0,0) -- (1.2,0,0) -- (1.2,0.8,0) -- (0,0.8,0) -- cycle;
+  \fill[blue!25, opacity=0.5] (A) -- (B) -- (Bw) -- (Aw) -- cycle;
+  \fill[blue!30, opacity=0.5] (B) -- (C) -- (Cw) -- (Bw) -- cycle;
+  \fill[blue!10, opacity=0.5] (Aw) -- (Bw) -- (Cw) -- (Dw) -- cycle;
+
+  % Spigoli visibili della cisterna
+  \draw[thick] (A) -- (B) -- (C);
+  \draw[thick] (E) -- (F) -- (G) -- (H) -- cycle;
+  \draw[thick] (A) -- (E);
+  \draw[thick] (B) -- (F);
+  \draw[thick] (C) -- (G);
+  
+  % Linea del livello dell'acqua
+  \draw[blue, thick] (Aw) -- (Bw) -- (Cw);
+  \draw[blue, dashed] (Cw) -- (Dw) -- (Aw);
+
+  % Quote
+  \draw[<->, thick] (0,-0.1,0) -- (1.2,-0.1,0) node[midway, below] {$1{,}2\,\mathrm{m}$};
+  \draw[<->, thick] (1.3,0,0) -- (1.3,0.8,0) node[midway, right] {$0{,}8\,\mathrm{m}$};
+  \draw[<->, thick] (-0.1,0,0) -- (-0.1,0,1.5) node[midway, left] {$1{,}5\,\mathrm{m}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\alph*)]
+  \item Calcola la capacità totale della cisterna espressa in litri.
+  \item Quanti litri d'acqua c'erano nella cisterna prima dell'arrivo degli escursionisti?
+  \item A quale altezza (espressa in centimetri) si trova il livello dell'acqua alla fine della settimana?
+\end{enumerate}
+
+\responsespace{5.5cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item Calcoliamo il volume totale della cisterna moltiplicando le tre dimensioni:
+    \[
+    V_{\text{tot}} = 1{,}2\unita{m} \times 0{,}8\unita{m} \times 1{,}5\unita{m} = 1{,}44\unita{m^3}
+    \]
+    Poiché $1\unita{m^3} = 1000\unita{dm^3} = 1000\unita{l}$, la capacità totale è:
+    \[
+    1{,}44 \times 1000 = 1440\unita{l}.
+    \]
+    \item All'inizio, la cisterna è piena fino ai $\frac{3}{4}$ della sua altezza (o del suo volume):
+    \[
+    V_{\text{iniziale}} = 1440\unita{l} \times \frac{3}{4} = 1080\unita{l}.
+    \]
+    \item Calcoliamo la quantità d'acqua rimasta dopo il consumo di $450\unita{l}$:
+    \[
+    V_{\text{finale}} = 1080\unita{l} - 450\unita{l} = 630\unita{l} = 630\unita{dm^3}.
+    \]
+    Dobbiamo trovare quale altezza di acqua produce il volume rimasto. Convertiamo le dimensioni di base in decimetri ($1{,}2\unita{m} = 12\unita{dm}$, $0{,}8\unita{m} = 8\unita{dm}$) e calcoliamo l'area di base:
+    \[
+    A_b = 12\unita{dm} \times 8\unita{dm} = 96\unita{dm^2}.
+    \]
+    Cerchiamo l'altezza $h$ tale che $A_b \times h = V_{\text{finale}}$, cioè $96 \times h = 630$.\\
+    Se proviamo $h = 6\unita{dm}$: $96 \times 6 = 576\unita{dm^3}$ (troppo poco).\\
+    Se proviamo $h = 7\unita{dm}$: $96 \times 7 = 672\unita{dm^3}$ (troppo).\\
+    Il valore corretto è tra $6$ e $7$: proviamo $h = 6{,}5\unita{dm}$: $96 \times 6{,}5 = 624\unita{dm^3}$ (ancora poco).\\
+    Proviamo $h = 6{,}5625\unita{dm}$: $96 \times 6{,}5625 = 630\unita{dm^3}$ (perfetto!).\\
+    Convertiamo: $6{,}5625\unita{dm} = 65{,}625\unita{cm}$.
+    \textbf{Risposta:} Alla fine della settimana il livello dell'acqua è a $65{,}625\unita{cm}$ dal fondo.
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{La vasca da giardino a forma di L}
+Un hotel fa costruire in giardino una vasca d'acqua decorativa. Vista dall'alto, la vasca ha una forma a "L" (composta da due rettangoli accostati). La vasca ha una profondità uniforme di $8\,\mathrm{dm}$. Le dimensioni della vasca sono indicate nella figura sotto.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.7, x={(0.86cm,0.4cm)}, y={(-0.86cm,0.4cm)}, z={(0cm,1cm)}]
+  % Base inferior a L
+  % Vertici base: (0,0), (3,0), (3,1), (1,1), (1,2), (0,2)
+  \coordinate (A) at (0,0,0);
+  \coordinate (B) at (3,0,0);
+  \coordinate (C) at (3,1,0);
+  \coordinate (D) at (1,1,0);
+  \coordinate (E) at (1,2,0);
+  \coordinate (F) at (0,2,0);
+  
+  % Base superiore a L (z = 0.8)
+  \coordinate (At) at (0,0,0.8);
+  \coordinate (Bt) at (3,0,0.8);
+  \coordinate (Ct) at (3,1,0.8);
+  \coordinate (Dt) at (1,1,0.8);
+  \coordinate (Et) at (1,2,0.8);
+  \coordinate (Ft) at (0,2,0.8);
+
+  % Spigoli inferiori posteriori tratteggiati
+  \draw[dashed, color=gray, thick] (F) -- (A) -- (B);
+  \draw[dashed, color=gray, thick] (A) -- (At);
+  
+  % Spigoli inferiori anteriori visibili
+  \draw[thick] (B) -- (C) -- (D) -- (E) -- (F);
+  
+  % Spigoli verticali visibili
+  \draw[thick] (B) -- (Bt);
+  \draw[thick] (C) -- (Ct);
+  \draw[thick] (D) -- (Dt);
+  \draw[thick] (E) -- (Et);
+  \draw[thick] (F) -- (Ft);
+  
+  % Profilo superiore visibile
+  \draw[thick, fill=blue!10, fill opacity=0.3] (At) -- (Bt) -- (Ct) -- (Dt) -- (Et) -- (Ft) -- cycle;
+  
+  % Quote e Linee di riferimento per massima chiarezza
+  % 1. Larghezza totale anteriore (A-B): 30 dm
+  \draw[dashed, gray!60, thin] (A) -- (0,-0.3,0);
+  \draw[dashed, gray!60, thin] (B) -- (3,-0.3,0);
+  \draw[<->, thick] (0,-0.25,0) -- (3,-0.25,0) node[midway, below] {$30\,\mathrm{dm}$};
+
+  % 2. Profondità primo tratto (B-C): 10 dm
+  \draw[dashed, gray!60, thin] (B) -- (3.3,0,0);
+  \draw[dashed, gray!60, thin] (C) -- (3.3,1,0);
+  \draw[<->, thick] (3.25,0,0) -- (3.25,1,0) node[midway, right] {$10\,\mathrm{dm}$};
+
+  % 3. Larghezza interna (C-D): 20 dm
+  \draw[dashed, gray!60, thin] (Ct) -- (3,1.3,0.8);
+  \draw[dashed, gray!60, thin] (Dt) -- (1,1.3,0.8);
+  \draw[<->, thick] (3,1.25,0.8) -- (1,1.25,0.8) node[midway, above] {$20\,\mathrm{dm}$};
+
+  % 4. Profondità interna (D-E): 10 dm
+  \draw[dashed, gray!60, thin] (Dt) -- (0.7,1,0.8);
+  \draw[dashed, gray!60, thin] (Et) -- (0.7,2,0.8);
+  \draw[<->, thick] (0.75,1,0.8) -- (0.75,2,0.8) node[midway, left] {$10\,\mathrm{dm}$};
+
+  % 5. Larghezza posteriore corta (E-F): 10 dm
+  \draw[dashed, gray!60, thin] (Et) -- (1,2.3,0.8);
+  \draw[dashed, gray!60, thin] (Ft) -- (0,2.3,0.8);
+  \draw[<->, thick] (1,2.25,0.8) -- (0,2.25,0.8) node[midway, above] {$10\,\mathrm{dm}$};
+
+  % 6. Profondità totale sinistra (F-A): 20 dm
+  \draw[dashed, gray!60, thin] (Ft) -- (-0.3,2,0.8);
+  \draw[dashed, gray!60, thin] (At) -- (-0.3,0,0.8);
+  \draw[<->, thick] (-0.25,2,0.8) -- (-0.25,0,0.8) node[midway, left] {$20\,\mathrm{dm}$};
+
+  % 7. Altezza/Profondità vasca (C-Ct): 8 dm (in rosso)
+  \draw[dashed, gray!60, thin] (C) -- (3.3,1,0);
+  \draw[dashed, gray!60, thin] (Ct) -- (3.3,1,0.8);
+  \draw[<->, thick, red] (3.25,1,0) -- (3.25,1,0.8) node[midway, right] {$8\,\mathrm{dm}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\alph*)]
+  \item Calcola il volume totale della vasca in decimetri cubi ($\mathrm{dm^3}$).
+  \item Quanti litri d'acqua sono necessari per riempire completamente la vasca? E quanti ettolitri ($\mathrm{hl}$)?
+\end{enumerate}
+
+\responsespace{5.5cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item Possiamo scomporre la base a forma di L in due rettangoli:
+    \begin{itemize}
+      \item \textbf{Rettangolo 1 (orizzontale):} lungo $30\unita{dm}$ e largo $10\unita{dm}$.
+      \[
+      A_1 = 30\unita{dm} \times 10\unita{dm} = 300\unita{dm^2}.
+      \]
+      \item \textbf{Rettangolo 2 (verticale sporgente):} poiché la lunghezza totale sul lato sinistro è $20\unita{dm}$ e la larghezza del primo rettangolo è $10\unita{dm}$, la parte sporgente è lunga $20 - 10 = 10\unita{dm}$. La sua larghezza è $10\unita{dm}$. Quindi è un quadrato di lato $10\unita{dm}$:
+      \[
+      A_2 = 10\unita{dm} \times 10\unita{dm} = 100\unita{dm^2}.
+      \]
+      \item \textbf{Area totale della base:}
+      \[
+      A_{\text{base}} = A_1 + A_2 = 300\unita{dm^2} + 100\unita{dm^2} = 400\unita{dm^2}.
+      \]
+    \end{itemize}
+    Il volume si ottiene moltiplicando l'area di base per la profondità uniforme ($h = 8\unita{dm}$):
+    \[
+    V = A_{\text{base}} \times h = 400\unita{dm^2} \times 8\unita{dm} = 3200\unita{dm^3}.
+    \]
+    \item Poiché $1\unita{dm^3} = 1\unita{l}$:
+    \begin{itemize}
+      \item La vasca contiene esattamente $3200\unita{l}$ d'acqua.
+      \item Convertiamo in ettolitri dividendo per $100$:
+      \[
+      3200\unita{l} = 32\unita{hl}.
+      \]
+    \end{itemize}
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{L'acquario e il tempo di riempimento}
+Un acquario domestico ha una base rettangolare di $100\,\mathrm{cm} \times 50\,\mathrm{cm}$ e un'altezza di $60\,\mathrm{cm}$. Per ragioni di sicurezza, l'acquario non deve essere riempito fino all'orlo, ma l'acqua deve fermarsi esattamente a $5\,\mathrm{cm}$ dal bordo superiore.
+
+Per riempire l'acquario si utilizza un rubinetto che ha una portata d'acqua costante di $12\,\mathrm{l}$ al minuto.
+
+\vspace{0.2cm}
+{\small\textit{La \textbf{portata} di un rubinetto indica quanta acqua esce in un certo tempo (ad esempio, litri al minuto).}}
+\vspace{0.2cm}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+  % Acquario in 3D (proiezione assonometrica semplice)
+  % Coordinate base
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (3,0);
+  \coordinate (C) at (3.8,0.6);
+  \coordinate (D) at (0.8,0.6);
+  % Coordinate sommità
+  \coordinate (E) at (0,1.8);
+  \coordinate (F) at (3,1.8);
+  \coordinate (G) at (3.8,2.4);
+  \coordinate (H) at (0.8,2.4);
+  
+  % Livello acqua a 5 cm dal bordo (altezza 55 cm, cioè scala 1.65)
+  \coordinate (Aw) at (0,1.5);
+  \coordinate (Bw) at (3,1.5);
+  \coordinate (Cw) at (3.8,2.1);
+  \coordinate (Dw) at (0.8,2.1);
+  
+  % Pareti posteriori tratteggiate
+  \draw[dashed, color=gray, thick] (D) -- (A);
+  \draw[dashed, color=gray, thick] (D) -- (C);
+  \draw[dashed, color=gray, thick] (D) -- (H);
+  
+  % Acqua interna
+  \fill[blue!15, opacity=0.4] (0,0) -- (3,0) -- (3.8,0.6) -- (0.8,0.6) -- cycle;
+  \fill[blue!25, opacity=0.4] (A) -- (B) -- (Bw) -- (Aw) -- cycle;
+  \fill[blue!35, opacity=0.4] (B) -- (C) -- (Cw) -- (Bw) -- cycle;
+  \fill[blue!10, opacity=0.4] (Aw) -- (Bw) -- (Cw) -- (Dw) -- cycle;
+  
+  % Spigoli acquario
+  \draw[thick] (A) -- (B) -- (C);
+  \draw[thick] (E) -- (F) -- (G) -- (H) -- cycle;
+  \draw[thick] (A) -- (E);
+  \draw[thick] (B) -- (F);
+  \draw[thick] (C) -- (G);
+  
+  % Livello acqua linee
+  \draw[blue, thick] (Aw) -- (Bw) -- (Cw);
+  \draw[blue, dashed] (Cw) -- (Dw) -- (Aw);
+  
+  % Rubinetto stilizzato
+  \draw[thick, fill=gray!30] (1.4,2.8) -- (1.4,2.5) -- (1.2,2.5) -- (1.2,2.6) -- (1.3,2.7) -- cycle;
+  \draw[blue!60, line width=2.5pt] (1.2,2.5) .. controls (1.2,2.1) and (1.4,1.8) .. (1.4,1.5);
+  
+  % Annotazioni quote
+  \draw[<->] (0,-0.2) -- (3,-0.2) node[midway, below] {$100\,\mathrm{cm}$};
+  \draw[<->] (3.2,-0.1) -- (3.9,0.4) node[midway, right] {$50\,\mathrm{cm}$};
+  \draw[<->] (-0.3,0) -- (-0.3,1.8) node[midway, left] {$60\,\mathrm{cm}$};
+  \draw[<->, red] (4.1,2.1) -- (4.1,2.4) node[midway, right] {$5\,\mathrm{cm}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\alph*)]
+  \item Calcola il volume d'acqua necessario per riempire l'acquario fino al livello stabilito (espresso in litri).
+  \item Quanto tempo (espresso in minuti e secondi) impiegherà il rubinetto a completare il riempimento?
+\end{enumerate}
+
+\responsespace{5.5cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item Convertiamo i centimetri in decimetri dividendo per $10$: lunghezza $= 10\unita{dm}$, larghezza $= 5\unita{dm}$, altezza $= 6\unita{dm}$.\\
+    L'acqua deve arrivare a $5\unita{cm}$ dal bordo superiore. Quindi l'altezza raggiunta dall'acqua sarà:
+    \[
+    h_{\text{acqua}} = 60\unita{cm} - 5\unita{cm} = 55\unita{cm} = 5{,}5\unita{dm}.
+    \]
+    Calcoliamo il volume dell'acqua:
+    \[
+    V_{\text{acqua}} = 10\unita{dm} \times 5\unita{dm} \times 5{,}5\unita{dm} = 275\unita{dm^3} = 275\unita{l}.
+    \]
+    \item Dividiamo il volume totale d'acqua per la portata del rubinetto ($12\unita{l/min}$):
+    \[
+    \text{Tempo} = \frac{275\unita{l}}{12\unita{l/min}} = 22{,}91667\text{ minuti}.
+    \]
+    Troviamo la parte intera e i secondi:
+    \begin{itemize}
+      \item La parte intera è di $22\text{ minuti}$.
+      \item La parte decimale è $0{,}91667\text{ minuti}$. Per convertirla in secondi moltiplichiamo per $60$:
+      \[
+      0{,}91667 \times 60 = 55\text{ secondi}.
+      \]
+    \end{itemize}
+    \textbf{Risposta:} Il rubinetto impiegherà $22\text{ minuti e } 55\text{ secondi}$ per riempire l'acquario.
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Il travaso tra serbatoi comunicanti}
+Hai a disposizione due serbatoi a forma di parallelepipedo rettangolo:
+\begin{itemize}
+  \item Il \textbf{Serbatoio A} ha una base di $5\,\mathrm{dm} \times 4\,\mathrm{dm}$ ed è alto $6\,\mathrm{dm}$. È completamente pieno d'acqua.
+  \item Il \textbf{Serbatoio B} ha una base di $8\,\mathrm{dm} \times 3\,\mathrm{dm}$ ed è alto $8\,\mathrm{dm}$. È inizialmente vuoto.
+\end{itemize}
+Tutta l'acqua contenuta nel Serbatoio A viene travasata nel Serbatoio B.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2, x={(0.86cm,0.4cm)}, y={(-0.86cm,0.4cm)}, z={(0cm,1cm)}]
+  % --- SERBATOIO A (Pieno) ---
+  % Dimensioni reali: base 5 x 4, altezza 6. 
+  % Usiamo scala 0.5 per le coordinate: larghezza=2.5, profondità=2.0, altezza=3.0
+  \coordinate (A) at (0,0,0);
+  \coordinate (B) at (2.5,0,0);
+  \coordinate (C) at (2.5,2.0,0);
+  \coordinate (D) at (0,2.0,0);
+  
+  \coordinate (E) at (0,0,3.0);
+  \coordinate (F) at (2.5,0,3.0);
+  \coordinate (G) at (2.5,2.0,3.0);
+  \coordinate (H) at (0,2.0,3.0);
+
+  % Spigoli posteriori tratteggiati (nascosti) di A
+  \draw[dashed, color=gray, thick] (A) -- (D);
+  \draw[dashed, color=gray, thick] (C) -- (D);
+  \draw[dashed, color=gray, thick] (D) -- (H);
+
+  % Riempimento acqua semi-trasparente in A (pieno fino in cima)
+  \fill[blue!15, opacity=0.5] (0,0,0) -- (2.5,0,0) -- (2.5,2.0,0) -- (0,2.0,0) -- cycle;
+  \fill[blue!25, opacity=0.5] (A) -- (B) -- (F) -- (E) -- cycle;
+  \fill[blue!30, opacity=0.5] (B) -- (C) -- (G) -- (F) -- cycle;
+  \fill[blue!10, opacity=0.5] (E) -- (F) -- (G) -- (H) -- cycle;
+
+  % Spigoli visibili di A
+  \draw[thick] (A) -- (B) -- (C);
+  \draw[thick] (E) -- (F) -- (G) -- (H) -- cycle;
+  \draw[thick] (A) -- (E);
+  \draw[thick] (B) -- (F);
+  \draw[thick] (C) -- (G);
+
+  % Quote Serbatoio A
+  \draw[<->, thick] (0,0,-0.4) -- (2.5,0,-0.4) node[midway, below] {$5\,\mathrm{dm}$};
+  \draw[<->, thick] (2.9,0,0) -- (2.9,2.0,0) node[midway, right] {$4\,\mathrm{dm}$};
+  \draw[<->, thick] (-0.4,0,0) -- (-0.4,0,3.0) node[midway, left] {$6\,\mathrm{dm}$};
+  
+  \node[anchor=north] at (1.25, 0, -1.0) {\textbf{Serbatoio A} (Pieno)};
+
+  % --- FRECCIA TRAVASO ---
+  \draw[->, line width=2.5pt, mainblue!80] (3.3, 0, 1.5) -- (5.7, 0, 1.5) node[midway, above=0.08cm, black] {\small\textit{travaso}};
+
+  % --- SERBATOIO B (Vuoto) ---
+  \begin{scope}[shift={(6.5,0,0)}]
+    % Dimensioni reali: base 8 x 3, altezza 8. 
+    % Usiamo scala 0.5 per le coordinate: larghezza=4.0, profondità=1.5, altezza=4.0
+    \coordinate (Ab) at (0,0,0);
+    \coordinate (Bb) at (4.0,0,0);
+    \coordinate (Cb) at (4.0,1.5,0);
+    \coordinate (Db) at (0,1.5,0);
+    
+    \coordinate (Eb) at (0,0,4.0);
+    \coordinate (Fb) at (4.0,0,4.0);
+    \coordinate (Gb) at (4.0,1.5,4.0);
+    \coordinate (Hb) at (0,1.5,4.0);
+
+    % Spigoli posteriori tratteggiati (nascosti) di B
+    \draw[dashed, color=gray, thick] (Ab) -- (Db);
+    \draw[dashed, color=gray, thick] (Cb) -- (Db);
+    \draw[dashed, color=gray, thick] (Db) -- (Hb);
+
+    % Spigoli visibili di B (vuoto)
+    \draw[thick] (Ab) -- (Bb) -- (Cb);
+    \draw[thick] (Eb) -- (Fb) -- (Gb) -- (Hb) -- cycle;
+    \draw[thick] (Ab) -- (Eb);
+    \draw[thick] (Bb) -- (Fb);
+    \draw[thick] (Cb) -- (Gb);
+
+    % Quote Serbatoio B
+    \draw[<->, thick] (0,0,-0.4) -- (4.0,0,-0.4) node[midway, below] {$8\,\mathrm{dm}$};
+    \draw[<->, thick] (4.4,0,0) -- (4.4,1.5,0) node[midway, right] {$3\,\mathrm{dm}$};
+    \draw[<->, thick] (-0.4,0,0) -- (-0.4,0,4.0) node[midway, left] {$8\,\mathrm{dm}$};
+
+    \node[anchor=north] at (2.0, 0, -1.0) {\textbf{Serbatoio B} (Vuoto)};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\alph*)]
+  \item Calcola la quantità d'acqua originariamente contenuta nel Serbatoio A.
+  \item Quale altezza raggiungerà l'acqua all'interno del Serbatoio B dopo il travaso?
+  \item A quanti centimetri dal bordo superiore del Serbatoio B si fermerà l'acqua?
+\end{enumerate}
+
+\responsespace{5.5cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item Calcoliamo il volume d'acqua del Serbatoio A:
+    \[
+    V_A = 5\unita{dm} \times 4\unita{dm} \times 6\unita{dm} = 120\unita{dm^3} = 120\unita{l}.
+    \]
+    \item L'acqua viene versata interamente nel Serbatoio B, quindi il volume dell'acqua nel Serbatoio B sarà $V_B = 120\unita{dm^3}$.
+    L'area di base del Serbatoio B è:
+    \[
+    A_{b,B} = 8\unita{dm} \times 3\unita{dm} = 24\unita{dm^2}.
+    \]
+    Per trovare l'altezza $h$ raggiunta dall'acqua nel Serbatoio B usiamo la formula inversa del volume ($h = V / A_b$):
+    \[
+    h_B = \frac{V_B}{A_{b,B}} = \frac{120\unita{dm^3}}{24\unita{dm^2}} = 5\unita{dm} = 50\unita{cm}.
+    \]
+    L'acqua raggiungerà un'altezza di $50\unita{cm}$.
+    \item L'altezza totale del Serbatoio B è $8\unita{dm} = 80\unita{cm}$.
+    La distanza tra il livello dell'acqua e il bordo superiore è:
+    \[
+    d = 80\unita{cm} - 50\unita{cm} = 30\unita{cm}.
+    \]
+    \textbf{Risposta:} L'acqua si fermerà a $30\unita{cm}$ dal bordo superiore del Serbatoio B.
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Il blocco con il foro prismatico}
+Un artigiano produce blocchi di cemento decorativi da usare nei giardini. Ogni blocco ha la forma di un parallelepipedo rettangolo con le dimensioni esterne di $8\,\mathrm{dm} \times 6\,\mathrm{dm}$ alla base e un'altezza di $5\,\mathrm{dm}$. 
+Al centro di ciascun blocco è praticato un foro rettangolare passante dall'alto verso il basso di dimensioni $4\,\mathrm{dm} \times 3\,\mathrm{dm}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.4, x={(0.86cm,0.4cm)}, y={(-0.86cm,0.4cm)}, z={(0cm,1cm)}]
+  % Coordinate blocco esterno
+  \coordinate (A) at (0,0,0);
+  \coordinate (B) at (3.2,0,0);
+  \coordinate (C) at (3.2,2.4,0);
+  \coordinate (D) at (0,2.4,0);
+  
+  \coordinate (At) at (0,0,2.0);
+  \coordinate (Bt) at (3.2,0,2.0);
+  \coordinate (Ct) at (3.2,2.4,2.0);
+  \coordinate (Dt) at (0,2.4,2.0);
+
+  % Coordinate foro interno
+  \coordinate (I1) at (0.8,0.6,0);
+  \coordinate (I2) at (2.4,0.6,0);
+  \coordinate (I3) at (2.4,1.8,0);
+  \coordinate (I4) at (0.8,1.8,0);
+
+  \coordinate (I1t) at (0.8,0.6,2.0);
+  \coordinate (I2t) at (2.4,0.6,2.0);
+  \coordinate (I3t) at (2.4,1.8,2.0);
+  \coordinate (I4t) at (0.8,1.8,2.0);
+
+  % Spigoli posteriori tratteggiati (nascosti) esterni
+  \draw[dashed, color=gray, thick] (A) -- (D);
+  \draw[dashed, color=gray, thick] (C) -- (D);
+  \draw[dashed, color=gray, thick] (D) -- (Dt);
+
+  % Facce esterne visibili ombreggiate
+  \fill[gray!30] (A) -- (B) -- (Bt) -- (At) -- cycle;
+  \fill[gray!40] (B) -- (C) -- (Ct) -- (Bt) -- cycle;
+
+  % Faccia superiore con foro (Even-Odd Rule per bucare)
+  \fill[gray!20, even odd rule] (At) -- (Bt) -- (Ct) -- (Dt) -- cycle 
+                               (I1t) -- (I2t) -- (I3t) -- (I4t) -- cycle;
+
+  % Interno del foro visibile
+  \fill[gray!55] (I1t) -- (I1) -- (I4) -- (I4t) -- cycle;
+  \fill[gray!60] (I1t) -- (I1) -- (I2) -- (I2t) -- cycle;
+
+  % Spigoli del foro interno
+  \draw[thick] (I1t) -- (I1) -- (I2) -- (I2t);
+  \draw[thick] (I1) -- (I4) -- (I4t);
+  \draw[thick] (I1t) -- (I2t) -- (I3t) -- (I4t) -- cycle;
+
+  % Spigoli esterni visibili
+  \draw[thick] (A) -- (B) -- (C);
+  \draw[thick] (At) -- (Bt) -- (Ct) -- (Dt) -- cycle;
+  \draw[thick] (A) -- (At);
+  \draw[thick] (B) -- (Bt);
+  \draw[thick] (C) -- (Ct);
+
+  % Linee di riferimento e Quote
+  % Larghezza esterna (8 dm)
+  \draw[dashed, gray!60, thin] (A) -- (0,-0.3,0);
+  \draw[dashed, gray!60, thin] (B) -- (3.2,-0.3,0);
+  \draw[<->, thick] (0,-0.25,0) -- (3.2,-0.25,0) node[midway, below] {$8\,\mathrm{dm}$};
+
+  % Profondità esterna (6 dm)
+  \draw[dashed, gray!60, thin] (B) -- (3.5,0,0);
+  \draw[dashed, gray!60, thin] (C) -- (3.5,2.4,0);
+  \draw[<->, thick] (3.45,0,0) -- (3.45,2.4,0) node[midway, right] {$6\,\mathrm{dm}$};
+
+  % Altezza blocco (5 dm)
+  \draw[dashed, gray!60, thin] (A) -- (-0.3,0,0);
+  \draw[dashed, gray!60, thin] (At) -- (-0.3,0,2.0);
+  \draw[<->, thick] (-0.25,0,0) -- (-0.25,0,2.0) node[midway, left] {$5\,\mathrm{dm}$};
+
+  % Larghezza foro interno (4 dm)
+  \draw[dashed, gray!60, thin] (I1t) -- (0.8,0.6,2.3);
+  \draw[dashed, gray!60, thin] (I2t) -- (2.4,0.6,2.3);
+  \draw[<->, thick] (0.8,0.6,2.25) -- (2.4,0.6,2.25) node[midway, above] {$4\,\mathrm{dm}$};
+
+  % Profondità foro interno (3 dm)
+  \draw[dashed, gray!60, thin] (I2t) -- (2.7,0.6,2.0);
+  \draw[dashed, gray!60, thin] (I3t) -- (2.7,1.8,2.0);
+  \draw[<->, thick] (2.65,0.6,2.0) -- (2.65,1.8,2.0) node[midway, right] {$3\,\mathrm{dm}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\alph*)]
+  \item Calcola il volume complessivo del cemento che costituisce il blocco.
+  \item Se il blocco viene immerso interamente in una grande vasca piena d'acqua, quanti litri d'acqua farà traboccare?
+  \item Se l'artigiano decidesse di tappare temporaneamente la base del foro per riempirlo completamente di sabbia, quanti litri di sabbia potrebbe contenere il foro?
+\end{enumerate}
+
+\responsespace{5.5cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item Calcoliamo il volume totale del blocco comprensivo del foro (volume esterno) e poi sottraiamo il volume del foro interno:
+    - Volume esterno:
+    \[
+    V_{\text{esterno}} = 8\unita{dm} \times 6\unita{dm} \times 5\unita{dm} = 240\unita{dm^3}
+    \]
+    - Volume del foro interno:
+    \[
+    V_{\text{foro}} = 4\unita{dm} \times 3\unita{dm} \times 5\unita{dm} = 60\unita{dm^3}
+    \]
+    - Volume effettivo di cemento:
+    \[
+    V_{\text{cemento}} = V_{\text{esterno}} - V_{\text{foro}} = 240\unita{dm^3} - 60\unita{dm^3} = 180\unita{dm^3}.
+    \]
+    \item L'acqua spostata (e quindi traboccata) è pari al volume netto del solido immerso. Poiché il foro si riempie d'acqua, solo il cemento sposta il liquido:
+    \[
+    \text{Litri traboccati} = V_{\text{cemento}} = 180\unita{dm^3} = 180\unita{l}.
+    \]
+    \item La sabbia riempie solo lo spazio del foro. Il volume del foro è:
+    \[
+    V_{\text{foro}} = 60\unita{dm^3} = 60\unita{l}.
+    \]
+    \textbf{Risposta:} Il blocco contiene $180\unita{dm^3}$ di cemento, sposta $180\unita{l}$ di acqua e il suo foro può contenere $60\unita{l}$ di sabbia.
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Il podio a tre gradini}
+Per una premiazione scolastica viene costruito un podio di legno. Il podio è formato da tre blocchi a forma di parallelepipedo rettangolo accostati, di dimensioni diverse. Le misure di ciascun gradino sono indicate nel disegno sotto.
+
+\begin{center}
+  \includegraphics[width=0.55\linewidth]{podio_geogebra.png}
+\end{center}
+
+\domanda{Calcola il volume totale di legno impiegato per realizzare l'intero podio scolastico.}
+
+\responsespace{5.5cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  Ogni gradino ha una base rettangolare di $12\unita{dm} \times 4\unita{dm}$:
+  \[
+  A_b = 12\unita{dm} \times 4\unita{dm} = 48\unita{dm^2}.
+  \]
+  Calcoliamo il volume di ciascun gradino moltiplicando per l'altezza corrispondente:
+  \begin{itemize}
+    \item Volume Gradino 1 ($h_1 = 3\unita{dm}$): $V_1 = 48 \times 3 = 144\unita{dm^3}$.
+    \item Volume Gradino 2 ($h_2 = 6\unita{dm}$): $V_2 = 48 \times 6 = 288\unita{dm^3}$.
+    \item Volume Gradino 3 ($h_3 = 9\unita{dm}$): $V_3 = 48 \times 9 = 432\unita{dm^3}$.
+  \end{itemize}
+  Il volume totale è la somma dei singoli volumi:
+  \[
+  V_{\text{tot}} = 144 + 288 + 432 = 864\unita{dm^3}.
+  \]
+  \textbf{Risposta:} Il volume totale di legno è $864\unita{dm^3}$.
+\end{soluzione}
+\end{esercizio}
+

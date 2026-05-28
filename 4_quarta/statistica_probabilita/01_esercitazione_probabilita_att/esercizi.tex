@@ -1,0 +1,681 @@
+% !TeX root = 01_esercitazione_probabilita_att.tex
+\begin{center}
+  {\Huge \color{mainblue}\textbf{Esercitazione: Calcolo delle Probabilità}}\\[0.2cm]
+  {\large \color{textgray}\textbf{Quarta Media Attitudinale -- Scheda di Sintesi e Consolidamento Completa}}\\[0.2cm]
+  \rule{0.82\linewidth}{0.5pt}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{esercizio}{Il catalogo della biblioteca}
+Nella biblioteca di una scuola media ci sono $500$ libri, catalogati e suddivisi in base al loro genere letterario come mostrato nella tabella seguente:
+
+\begin{center}
+\begin{spacing}{1.25}
+\begin{tabularx}{0.65\linewidth}{|m{4cm}|>{\centering\arraybackslash}X|}
+  \hline
+  \textbf{Genere di Libro} & \textbf{Numero di Libri} \\ \hline\hline
+  Avventura & 120 \\ \hline
+  Gialli & 90 \\ \hline
+  Fantasy & 110 \\ \hline
+  Scienza & 80 \\ \hline
+  Fumetti & 100 \\ \hline\hline
+  \textbf{Totale} & \textbf{500} \\ \hline
+\end{tabularx}
+\end{spacing}
+\end{center}
+
+Immagina di scegliere un libro a caso dalla biblioteca:
+
+\begin{enumerate}[label=\alph*)]
+  \item Verifica tramite un calcolo che nella biblioteca ci siano esattamente $500$ libri in totale.
+  \item Qual è la probabilità che il libro estratto a caso sia di genere \textbf{scienza}?
+  \item Qual è la probabilità che il libro estratto a caso \textbf{non sia} un fumetto?
+  \item Supponiamo che Giacomo decida di scegliere un libro tra quelli di genere \textbf{fantasy}. Sapendo che all'interno del genere fantasy vi è una serie speciale composta da $25$ libri sui draghi, qual è la probabilità che il libro scelto da Giacomo appartenga a questa serie?
+\end{enumerate}
+
+\responsespace{3.0cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item Sommiamo i libri di ciascun genere per verificare il totale:
+    \[
+    \text{Totale} = 120 + 90 + 110 + 80 + 100 = 500 \text{ libri}.
+    \]
+    La somma è esattamente $500$, che rappresenta il nostro numero di **casi possibili**.
+    \item I casi favorevoli per il genere ``scienza'' sono $80$. La probabilità è:
+    \[
+    P(\text{scienza}) = \frac{\text{casi favorevoli}}{\text{casi possibili}} = \frac{80}{500} = \frac{8}{50} = \frac{4}{25} = 0{,}16 = 16\%
+    \]
+    \item Per l'evento ``non sia un fumetto'', i casi favorevoli sono tutti i libri tranne i fumetti (ossia $500 - 100 = 400$ libri):
+    \[
+    P(\text{non fumetto}) = \frac{400}{500} = \frac{4}{5} = 0{,}80 = 80\%
+    \]
+    \item Poiché sappiamo che Giacomo sceglie *solamente* tra i libri di genere \textbf{fantasy}, lo spazio dei casi possibili si restringe ai soli $110$ libri fantasy.
+    I casi favorevoli (i libri sui draghi all'interno della sezione fantasy) sono $25$. La probabilità è:
+    \[
+    P(\text{draghi} \mid \text{fantasy}) = \frac{25}{110} = \frac{5}{22} \approx 0{,}227 = 22{,}7\%
+    \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{La vetrina dei gelati}
+Una gelateria prepara coni gelato di diversi gusti per l'inizio del weekend. In totale ci sono $240$ gelati pronti in cella frigorifera, così suddivisi in base al gusto:
+
+\begin{center}
+\begin{spacing}{1.25}
+\begin{tabularx}{0.65\linewidth}{|m{4cm}|>{\centering\arraybackslash}X|}
+  \hline
+  \textbf{Gusto} & \textbf{Numero di Gelati} \\ \hline\hline
+  Cioccolato & 70 \\ \hline
+  Fragola & 40 \\ \hline
+  Limone & 30 \\ \hline
+  Pistacchio & 50 \\ \hline
+  Vaniglia & 50 \\ \hline\hline
+  \textbf{Totale} & \textbf{240} \\ \hline
+\end{tabularx}
+\end{spacing}
+\end{center}
+
+
+Un cliente entra e sceglie un cono gelato completamente a caso.
+
+\begin{enumerate}[label=\alph*)]
+  \item Verifica tramite un calcolo che la gelateria abbia preparato esattamente $240$ gelati.
+  \item Qual è la probabilità che il cliente scelga un gelato al \textbf{pistacchio}?
+  \item Qual è la probabilità che il gelato scelto \textbf{non sia} al limone?
+  \item Sapendo che il gelato estratto a caso è al \textbf{cioccolato}, qual è la probabilità che sia uno dei $20$ coni ricoperti speciali di granella di nocciole?
+\end{enumerate}
+
+\responsespace{3.0cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item Sommiamo i gelati preparati:
+    \[
+    \text{Totale} = 70 + 40 + 30 + 50 + 50 = 240 \text{ gelati}.
+    \]
+    La somma è esattamente $240$ (casi possibili).
+    \item I casi favorevoli per il gusto ``pistacchio'' sono $50$. La probabilità è:
+    \[
+    P(\text{pistacchio}) = \frac{50}{240} = \frac{5}{24} \approx 0{,}208 = 20{,}8\%
+    \]
+    \item Per l'evento ``non sia al limone'', i casi favorevoli sono tutti i coni tranne i $30$ al limone (cioè $240 - 30 = 210$ gelati):
+    \[
+    P(\text{non limone}) = \frac{210}{240} = \frac{21}{24} = \frac{7}{8} = 0{,}875 = 87{,}5\%
+    \]
+    \item Poiché sappiamo che il cono scelto è al cioccolato, lo spazio dei casi possibili si restringe ai soli $70$ gelati al cioccolato.
+    I casi favorevoli (coni con granella all'interno del cioccolato) sono $20$. La probabilità è:
+    \[
+    P(\text{granella} \mid \text{cioccolato}) = \frac{20}{70} = \frac{2}{7} \approx 0{,}286 = 28{,}6\%
+    \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Lo scaffale delle magliette}
+In un negozio di articoli sportivi ci sono $360$ magliette di cotone, suddivise per colore come riportato nella seguente tabella:
+
+\begin{center}
+\begin{spacing}{1.25}
+\begin{tabularx}{0.65\linewidth}{|m{4cm}|>{\centering\arraybackslash}X|}
+  \hline
+  \textbf{Colore} & \textbf{Numero di Magliette} \\ \hline\hline
+  Rosse & 80 \\ \hline
+  Blu & 100 \\ \hline
+  Verdi & 60 \\ \hline
+  Nere & 70 \\ \hline
+  Bianche & 50 \\ \hline\hline
+  \textbf{Totale} & \textbf{360} \\ \hline
+\end{tabularx}
+\end{spacing}
+\end{center}
+
+
+Un commesso preleva a caso una maglietta dallo scaffale.
+
+\begin{enumerate}[label=\alph*)]
+  \item Verifica tramite un calcolo che nello scaffale ci siano esattamente $360$ magliette.
+  \item Qual è la probabilità che la maglietta scelta sia \textbf{verde}?
+  \item Qual è la probabilità che la maglietta scelta \textbf{non sia} blu?
+  \item Sapendo che la maglietta scelta è di colore \textbf{nero}, qual è la probabilità che sia una delle $15$ magliette speciali che presentano il logo dorato stampato sul petto?
+\end{enumerate}
+
+\responsespace{3.0cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item Sommiamo le magliette presenti sullo scaffale:
+    \[
+    \text{Totale} = 80 + 100 + 60 + 70 + 50 = 360 \text{ magliette}.
+    \]
+    La somma è esattamente $360$ (casi possibili).
+    \item I casi favorevoli per il colore ``verde'' sono $60$. La probabilità è:
+    \[
+    P(\text{verde}) = \frac{60}{360} = \frac{1}{6} \approx 0{,}167 = 16{,}7\%
+    \]
+    \item Per l'evento ``non sia blu'', i casi favorevoli sono tutte le magliette tranne le $100$ blu (cioè $360 - 100 = 260$ magliette):
+    \[
+    P(\text{non blu}) = \frac{260}{360} = \frac{26}{36} = \frac{13}{18} \approx 0{,}722 = 72{,}2\%
+    \]
+    \item Poiché sappiamo che la maglietta prelevata è nera, lo spazio dei casi possibili si riduce alle sole $70$ magliette nere.
+    I casi favorevoli (magliette nere con logo dorato) sono $15$. La probabilità è:
+    \[
+    P(\text{logo dorato} \mid \text{nera}) = \frac{15}{70} = \frac{3}{14} \approx 0{,}214 = 21{,}4\%
+    \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Il lancio di un dado e una moneta}
+Vengono lanciati contemporaneamente un comune dado a $6$ facce numerate da $1$ a $6$ e una moneta perfettamente bilanciata. 
+
+
+Risolvi i seguenti quesiti elencando esplicitamente lo spazio dei casi:
+
+\begin{enumerate}[label=\alph*)]
+  \item Elenca tutti i possibili esiti combinati del lancio (lo spazio campionario). Quanti sono in totale?
+  \item Qual è la probabilità di ottenere un numero pari sul dado e la faccia Testa (T) sulla moneta?
+  \item Qual è la probabilità di ottenere un numero strettamente minore di $3$ sul dadi e la faccia Croce (C) sulla moneta?
+  \item Qual è la probabilità di ottenere un numero dispari sul dado (indipendentemente dall'esito della moneta)?
+  \item Qual è la probabilità di ottenere Testa (T) sulla moneta \textbf{oppure} di ottenere un numero pari a $6$ sul dado?
+\end{enumerate}
+
+\responsespace{3.0cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  \begin{enumerate}[label=\alph*)]
+    \item Ogni lancio di dado ha 6 esiti e ogni lancio di moneta ha 2 esiti. Lo spazio dei casi possibili è formato da $6 \times 2 = 12$ coppie ordinate:
+    \[
+    \Omega = \{T1, T2, T3, T4, T5, T6, C1, C2, C3, C4, C5, C6\}
+    \]
+    I casi possibili sono in totale $12$.
+    \item Le coppie con numero pari $\{2,4,6\}$ e Testa (T) sono:
+    \[
+    \text{Favorevoli} = \{T2, T4, T6\} \implies 3 \text{ casi}
+    \]
+    La probabilità è:
+    \[
+    P(\text{pari e T}) = \frac{3}{12} = \frac{1}{4} = 0{,}25 = 25\%
+    \]
+    \item Un numero strettamente minore di $3$ significa che il dado deve mostrare $1$ o $2$. Abbinati a Croce (C) abbiamo:
+    \[
+    \text{Favorevoli} = \{C1, C2\} \implies 2 \text{ casi}
+    \]
+    La probabilità è:
+    \[
+    P(< 3 \text{ e C}) = \frac{2}{12} = \frac{1}{6} \approx 0{,}167 = 16{,}7\%
+    \]
+    \item Le facce dispari sul dado sono $\{1,3,5\}$. I casi favorevoli sono tutte le coppie con dadi dispari:
+    \[
+    \text{Favorevoli} = \{T1, T3, T5, C1, C3, C5\} \implies 6 \text{ casi}
+    \]
+    La probabilità è:
+    \[
+    P(\text{dispari}) = \frac{6}{12} = \frac{1}{2} = 0{,}5 = 50\%
+    \]
+    \item L'evento ``T o 6'' è un'unione di eventi non incompatibili. Contiamo i casi favorevoli:
+    - Tutte le coppie con la moneta su Testa: $\{T1, T2, T3, T4, T5, T6\}$ (6 casi).
+    - Tutte le coppie con il dado su 6: $\{T6, C6\}$ (il caso $T6$ è già stato contato).
+    L'insieme delle coppie favorevoli è $\{T1, T2, T3, T4, T5, T6, C6\}$ (7 casi favorevoli).
+    La probabilità è:
+    \[
+    P(T \text{ oppure } 6) = \frac{7}{12} \approx 0{,}583 = 58{,}3\%
+    \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Il lancio di due dadi}
+Si lanciano simultaneamente due dadi regolari a $6$ facce distinguibili: uno di colore \textbf{rosso} e uno di colore \textbf{blu}.
+
+
+Risolvi i quesiti avvalendoti della tabella a doppia entrata $6 \times 6$ dei possibili esiti (36 casi totali):
+
+\begin{enumerate}[label=\alph*)]
+  \item Qual è la probabilità di ottenere due numeri uguali sulle facce dei due dadi (un ``doppio'')?
+  \item Qual è la probabilità che la \textbf{somma} dei due numeri ottenuti sia esattamente pari a $8$?
+  \item Qual è la probabilità che compaia \textbf{almeno una volta} la faccia $5$ (sul dado rosso, sul dado blu o su entrambi)?
+  \item Qual è la probabilità che il numero mostrato sul dado \textbf{rosso} sia strettamente maggiore di quello mostrato sul dado \textbf{blu}?
+\end{enumerate}
+
+\responsespace{3.0cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  Lo spazio campionario è composto da $6 \times 6 = 36$ coppie ordinate del tipo $(R, B)$.
+  \begin{enumerate}[label=\alph*)]
+    \item I casi favorevoli sono le coppie con facce uguali:
+    \[
+    \text{Favorevoli} = \{(1,1), (2,2), (3,3), (4,4), (5,5), (6,6)\} \implies 6 \text{ casi}
+    \]
+    La probabilità è:
+    \[
+    P(\text{numeri uguali}) = \frac{6}{36} = \frac{1}{6} \approx 0{,}167 = 16{,}7\%
+    \]
+    \item Identifichiamo le coppie la cui somma delle componenti è pari a 8:
+    \[
+    \text{Favorevoli} = \{(2,6), (3,5), (4,4), (5,3), (6,2)\} \implies 5 \text{ casi}
+    \]
+    La probabilità è:
+    \[
+    P(\text{somma } 8) = \frac{5}{36} \approx 0{,}139 = 13{,}9\%
+    \]
+    \item L'evento ``almeno un 5'' comprende le coppie in cui la prima componente è 5 (riga del 5: 6 casi) o la seconda è 5 (colonna del 5: 6 casi). Il caso $(5,5)$ è in comune.
+    I casi favorevoli sono in totale $6 + 6 - 1 = 11$ casi:
+    \[
+    \text{Favorevoli} = \{(5,1), (5,2), (5,3), (5,4), (5,5), (5,6), (1,5), (2,5), (3,5), (4,5), (6,5)\}
+    \]
+    La probabilità è:
+    \[
+    P(\text{almeno un } 5) = \frac{11}{36} \approx 0{,}306 = 30{,}6\%
+    \]
+    \item Su 36 casi totali:
+    - 6 casi sono di parità ($R = B$, vedi punto a).
+    - Nei restanti $30$ casi, per simmetria, la metà delle volte il dado rosso sarà maggiore del blu ($R > B$) e l'altra metà sarà minore ($R < B$).
+    Quindi, i casi favorevoli a $R > B$ sono $30 / 2 = 15$ casi (ad esempio $(2,1), (3,1), (3,2)...$):
+    \[
+    P(R > B) = \frac{15}{36} = \frac{5}{12} \approx 0{,}417 = 41{,}7\%
+    \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Due lanci di una moneta}
+Una moneta non truccata viene lanciata in aria due volte consecutivamente.
+
+\begin{center}
+\begin{tikzpicture}[level distance=1.5cm,
+  sibling distance=2.2cm,
+  every node/.style={circle, draw=mainblue, fill=softblue, inner sep=2.5pt, thick, font=\bfseries\color{mainblue}},
+  edge from parent/.style={draw, gray!80, line width=1pt, ->}]
+  
+  \node[rectangle, rounded corners=3pt, font=\small] (R) {Inizio}
+    child {node {T}
+      child {node {T} edge from parent}
+      child {node {C} edge from parent}
+      edge from parent
+    }
+    child {node {C}
+      child {node {T} edge from parent}
+      child {node {C} edge from parent}
+      edge from parent
+    };
+\end{tikzpicture}
+\end{center}
+
+Rappresenta lo spazio campionario tramite un albero o un elenco coordinato dei $4$ esiti possibili:
+
+\begin{enumerate}[label=\alph*)]
+  \item Qual è la probabilità di ottenere due volte la faccia Testa (\textbf{due teste})?
+  \item Qual è la probabilità di ottenere \textbf{almeno una} croce?
+  \item Qual è la probabilità di ottenere \textbf{esattamente} una testa?
+\end{enumerate}
+
+\responsespace{3.0cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  I possibili esiti dell'esperimento sono formato da $2^2 = 4$ coppie ordinate:
+  \[
+  \Omega = \{TT, TC, CT, CC\}
+  \]
+  \begin{enumerate}[label=\alph*)]
+    \item L'evento ``due teste'' corrisponde all'esito $\{TT\}$ (1 caso favorevole):
+    \[
+    P(TT) = \frac{1}{4} = 0{,}25 = 25\%
+    \]
+    \item L'evento ``almeno una croce'' esclude solo l'esito $TT$. I casi favorevoli sono $\{TC, CT, CC\}$ (3 casi):
+    \[
+    P(\text{almeno una C}) = \frac{3}{4} = 0{,}75 = 75\%
+    \]
+    \item L'evento ``esattamente una testa'' comprende le sequenze con una sola T e una C: $\{TC, CT\}$ (2 casi favorevoli):
+    \[
+    P(\text{esattamente una T}) = \frac{2}{4} = \frac{1}{2} = 0{,}5 = 50\%
+    \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Tre lanci di una moneta}
+Una moneta non truccata viene lanciata in aria tre volte consecutivamente.
+
+\begin{center}
+\begin{tikzpicture}[level distance=1.5cm,
+  sibling distance=1.6cm,
+  every node/.style={circle, draw=mainblue, fill=softblue, inner sep=2pt, thick, font=\bfseries\color{mainblue}},
+  edge from parent/.style={draw, gray!80, line width=1pt, ->}]
+  
+  \node[rectangle, rounded corners=3pt, font=\small] (R) {Inizio}
+    child {node {T}
+      child {node {T}
+        child {node {T} edge from parent}
+        child {node {C} edge from parent}
+        edge from parent
+      }
+      child {node {C}
+        child {node {T} edge from parent}
+        child {node {C} edge from parent}
+        edge from parent
+      }
+      edge from parent
+    }
+    child {node {C}
+      child {node {T}
+        child {node {T} edge from parent}
+        child {node {C} edge from parent}
+        edge from parent
+      }
+      child {node {C}
+        child {node {T} edge from parent}
+        child {node {C} edge from parent}
+        edge from parent
+      }
+      edge from parent
+    };
+\end{tikzpicture}
+\end{center}
+
+Rappresenta lo spazio campionario tramite un albero delle scelte a tre livelli (8 esiti totali):
+
+\begin{enumerate}[label=\alph*)]
+  \item Qual è la probabilità di ottenere tre volte Testa (\textbf{tre teste})?
+  \item Qual è la probabilità di ottenere \textbf{esattamente} due teste nei tre lanci?
+  \item Qual è la probabilità di ottenere \textbf{almeno} una testa nei tre lanci?
+  \item Qual è la probabilità che il \textbf{primo lancio} sia croce (indipendentemente dagli altri due)?
+\end{enumerate}
+
+\responsespace{3.0cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  I possibili esiti dell'esperimento (foglie dell'albero a 3 livelli) sono $2^3 = 8$ terne ordinate:
+  \[
+  \Omega = \{TTT, TTC, TCT, TCC, CTT, CTC, CCT, CCC\}
+  \]
+  \begin{enumerate}[label=\alph*)]
+    \item L'esito favorevole a ``tre teste'' è solo $\{TTT\}$ (1 caso):
+    \[
+    P(TTT) = \frac{1}{8} = 0{,}125 = 12{,}5\%
+    \]
+    \item Le terne che contengono esattamente due T e una C sono:
+    \[
+    \text{Favorevoli} = \{TTC, TCT, CTT\} \implies 3 \text{ casi}
+    \]
+    La probabilità è:
+    \[
+    P(\text{esattamente due T}) = \frac{3}{8} = 0{,}375 = 37{,}5\%
+    \]
+    \item L'evento ``almeno una testa'' esclude solo l'esito $\{CCC\}$. I casi favorevoli sono tutti gli altri 7 esiti:
+    \[
+    P(\text{almeno una T}) = \frac{7}{8} = 0{,}875 = 87{,}5\%
+    \]
+    \item I casi in cui il primo lancio è croce (la terna comincia con la lettera $C$) sono:
+    \[
+    \text{Favorevoli} = \{CTT, CTC, CCT, CCC\} \implies 4 \text{ casi}
+    \]
+    La probabilità è:
+    \[
+    P(\text{1° lancio C}) = \frac{4}{8} = \frac{1}{2} = 0{,}5 = 50\%
+    \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{La scatola di ghiaccioli}
+Una scatola in freezer contiene $8$ ghiaccioli confezionati:
+\begin{itemize}
+  \item $3$ ghiaccioli alla \textbf{menta}.
+  \item $5$ ghiaccioli al \textbf{limone}.
+\end{itemize}
+
+
+Si estraggono consecutivamente due ghiaccioli dalla scatola. Calcola la probabilità che il primo sia alla menta e il secondo sia al limone nei seguenti due casi distinti:
+
+\begin{enumerate}[label=\alph*)]
+  \item \textbf{Con reinserimento}: il primo ghiacciolo viene rimesso nella scatola prima di estrarre il secondo.
+  \item \textbf{Senza reinserimento}: il primo ghiacciolo viene consumato (non viene rimesso a posto) e poi si estrae il secondo.
+\end{enumerate}
+
+\responsespace{3.0cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  Identifichiamo fisicamente i ghiaccioli come $M_1, M_2, M_3$ (menta) e $L_1, L_2, L_3, L_4, L_5$ (limone).
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Con reinserimento}:
+    - Per ciascuna delle 8 scelte del primo ghiacciolo, abbiamo ancora 8 scelte per il secondo.
+    - Casi possibili = $8 \times 8 = 64$ coppie ordinate equiprobabili.
+    - Le coppie favorevoli (Menta primo, Limone secondo) sono formate scegliendo un ghiacciolo alla menta (3 scelte) e uno al limone (5 scelte):
+    \[
+    \text{Casi favorevoli} = 3 \times 5 = 15 \text{ casi}
+    \]
+    La probabilità è:
+    \[
+    P(\text{Menta } \to \text{ Limone con reinserimento}) = \frac{15}{64} \approx 0{,}234 = 23{,}4\%
+    \]
+    \item \textbf{Senza reinserimento}:
+    - Per la prima estrazione abbiamo 8 scelte, mentre per la seconda ne rimangono 7.
+    - Casi possibili = $8 \times 7 = 56$ coppie ordinate equiprobabili.
+    - Le coppie favorevoli (Menta primo, Limone secondo) sono ancora formate scegliendo uno dei 3 alla menta e poi uno dei 5 al limone (che sono tutti intatti nel sacchetto):
+    \[
+    \text{Casi favorevoli} = 3 \times 5 = 15 \text{ casi}
+    \]
+    La probabilità è:
+    \[
+    P(\text{Menta } \to \text{ Limone senza reinserimento}) = \frac{15}{56} \approx 0{,}268 = 26{,}8\%
+    \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Il cassetto dei calzini}
+Un cassetto disordinato contiene calzini spaiati di due soli colori:
+\begin{itemize}
+  \item $6$ \textbf{paia} di calze rosse.
+  \item $12$ \textbf{paia} di calze nere.
+\end{itemize}
+
+
+Si pescano a caso consecutivamente due singoli calzini dal cassetto. Calcola la probabilità di pescare due calzini neri nei seguenti due casi:
+
+\begin{enumerate}[label=\alph*)]
+  \item \textbf{Con reinserimento}: il primo calzino viene rimesso a posto nel cassetto prima di estrarre il secondo.
+  \item \textbf{Senza reinserimento}: il primo calzino viene tenuto in mano e poi si estrae il secondo.
+\end{enumerate}
+
+\responsespace{3.0cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  Prima di tutto, determiniamo il numero di singoli calzini nel cassetto:
+  - Calzini rossi: $6 \text{ paia} \times 2 = 12 \text{ calzini}$.
+  - Calzini neri: $12 \text{ paia} \times 2 = 24 \text{ calzini}$.
+  - Totale calzini nel cassetto = $12 + 24 = 36$ calzini.
+  
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Con reinserimento}:
+    - Casi possibili = $36 \times 36 = 1296$ coppie ordinate equiprobabili.
+    - Casi favorevoli (Nero, Nero) = si sceglie un calzino nero (24 opzioni) e poi ancora un calzino nero (24 opzioni):
+    \[
+    \text{Casi favorevoli} = 24 \times 24 = 576 \text{ casi}
+    \]
+    La probabilità è:
+    \[
+    P(\text{due calzini Neri con reinserimento}) = \frac{576}{1296} = \frac{4}{9} \approx 0{,}444 = 44{,}4\%
+    \]
+    \item \textbf{Senza reinserimento}:
+    - Per la prima scelta abbiamo 36 calzini, per la seconda ne rimangono 35.
+    - Casi possibili = $36 \times 35 = 1260$ coppie ordinate equiprobabili.
+    - Casi favorevoli (Nero, Nero) = si sceglie un calzino nero (24 opzioni) e poi un secondo calzino nero tra i 23 rimasti:
+    \[
+    \text{Casi favorevoli} = 24 \times 23 = 552 \text{ casi}
+    \]
+    La probabilità è:
+    \[
+    P(\text{due calzini Neri senza reinserimento}) = \frac{552}{1260} = \frac{46}{105} \approx 0{,}438 = 43{,}8\%
+    \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{La confezione di puntine}
+Una grande confezione da disegno contiene $2500$ puntine. Di queste, si stima che il $20\%$ sia spuntato (difettoso e senza punta). 
+
+
+Si pescano consecutivamente a caso due puntine dalla confezione \textbf{senza rimetterle a posto}. 
+
+\domanda{Calcola la probabilità che entrambe le puntine estratte siano spuntate (senza punta).}
+
+\responsespace{4.0cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  Calcoliamo prima quante puntine spuntate ci sono nella confezione:
+  - Numero totale di puntine = $2500$ (casi possibili per la prima estrazione).
+  - Puntine spuntate = $20\% \text{ di } 2500 = \frac{20}{100} \times 2500 = 500$ puntine.
+  - Puntine intatte (con punta) = $2500 - 500 = 2000$ puntine.
+  
+  Eseguiamo l'estrazione consecutiva senza reinserimento:
+  - Casi possibili complessivi = si sceglie una puntina tra 2500 e poi un'altra tra le 2499 rimaste:
+    \[
+    \text{Casi possibili} = 2500 \times 2499 = 6\,247\,500 \text{ coppie}
+    \]
+  - Casi favorevoli (entrambe spuntate) = si sceglie una delle 500 puntine spuntate e poi una delle 499 spuntate rimaste:
+    \[
+    \text{Casi favorevoli} = 500 \times 499 = 249\,500 \text{ coppie}
+    \]
+  La probabilità cercata è:
+  \[
+  P(\text{entrambe spuntate}) = \frac{500 \times 499}{2500 \times 2499} = \frac{1}{5} \times \frac{499}{2499} = \frac{499}{12\,495} \approx 0{,}0399 = 3{,}99\%
+  \]
+  \textbf{Risposta:} La probabilità di estrarre due puntine spuntate è di circa il $3{,}99\%$ (quasi il $4\%$).
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Il cestino di biglie colorate}
+Un cestino per il gioco delle bocce contiene $100$ biglie colorate, così suddivise:
+\begin{itemize}
+  \item $50$ biglie \textbf{rosse}.
+  \item $30$ biglie \textbf{bianche}.
+  \item $20$ biglie \textbf{nere}.
+\end{itemize}
+
+
+Si estraggono a caso consecutivamente due biglie dal cestino \textbf{senza rimettere la prima estratta nel cestino} (estrazione senza reinserimento).
+
+\domanda{Calcola la probabilità che le due biglie estratte siano una bianca e una nera (in qualsiasi ordine d'apparizione).}
+
+\responsespace{4.0cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  Determiniamo la consistenza del cestino:
+  - Biglie totali = $100$.
+  - Biglie bianche ($B$) = $30$.
+  - Biglie nere ($N$) = $20$.
+  
+  Poiché l'estrazione è senza reinserimento e consecutive:
+  - Casi possibili complessivi = si estrae una biglia tra 100 e poi un'altra tra le 99 rimaste:
+    \[
+    \text{Casi possibili} = 100 \times 99 = 9900 \text{ coppie}
+    \]
+  
+  L'evento ``una bianca e una nera in qualsiasi ordine'' può verificarsi in due modi ordinati distinti e incompatibili:
+  1. **Prima Bianca, seconda Nera** ($B \to N$):
+     - Scelte per la bianca = 30.
+     - Scelte per la nera = 20.
+     - Casi favorevoli per $BN = 30 \times 20 = 600$ casi.
+  2. **Prima Nera, seconda Bianca** ($N \to B$):
+     - Scelte per la nera = 20.
+     - Scelte per la bianca = 30.
+     - Casi favorevoli per $NB = 20 \times 30 = 600$ casi.
+  
+  Sommiamo i casi favorevoli totali delle due configurazioni:
+  \[
+  \text{Casi favorevoli totali} = 600 + 600 = 1200 \text{ casi}
+  \]
+  
+  Calcoliamo la probabilità complessiva:
+  \[
+  P(\text{una Bianca e una Nera}) = \frac{\text{casi favorevoli}}{\text{casi possibili}} = \frac{1200}{9900} = \frac{12}{99} = \frac{4}{33} \approx 0{,}1212 = 12{,}12\%
+  \]
+  \textbf{Risposta:} La probabilità di ottenere una biglia bianca e una nera è di circa il $12{,}12\%$.
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{La scatola di cioccolatini}
+Una raffinata confezione di cioccolatini contiene in totale $30$ pezzi:
+\begin{itemize}
+  \item $20$ cioccolatini \textbf{farciti} (tondi).
+  \item $10$ cioccolatini \textbf{ricoperti} (quadrati).
+\end{itemize}
+
+
+Si estraggono a caso consecutivamente due cioccolatini dalla scatola. Calcola la probabilità che siano entrambi del tipo \textbf{ricoperto} nei seguenti due casi:
+
+\begin{enumerate}[label=\alph*)]
+  \item \textbf{Con reinserimento}: il primo cioccolatino viene rimesso nella scatola prima di prendere il secondo.
+  \item \textbf{Senza reinserimento}: il primo cioccolatino viene mangiato (non viene rimesso a posto) e poi si prende il secondo.
+\end{enumerate}
+
+\responsespace{4.0cm}
+
+\begin{soluzione}
+  \textbf{Passaggi:}
+  Dati iniziali della scatola:
+  - Cioccolatini totali = $30$.
+  - Cioccolatini ricoperti = $10$.
+  - Cioccolatini farciti = $20$.
+  
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Con reinserimento}:
+    - Casi possibili = si sceglie un cioccolatino tra 30 e poi un altro sempre tra 30 $\implies 30 \times 30 = 900$ casi possibili ordinati.
+    - Casi favorevoli (entrambi ricoperti) = si sceglie un ricoperto (10 scelte) e poi ancora un ricoperto (10 scelte):
+      \[
+      \text{Casi favorevoli} = 10 \times 10 = 100 \text{ casi}
+      \]
+    La probabilità è:
+    \[
+    P(\text{due ricoperti con reinserimento}) = \frac{100}{900} = \frac{1}{9} \approx 0{,}1111 = 11{,}11\%
+    \]
+    \item \textbf{Senza reinserimento}:
+    - Casi possibili = si sceglie un cioccolatino tra 30 e poi un altro tra i 29 rimasti $\implies 30 \times 29 = 870$ casi possibili ordinati.
+    - Casi favorevoli (entrambi ricoperti) = si sceglie un ricoperto (10 scelte) e poi un secondo ricoperto tra i 9 rimasti nella confezione:
+      \[
+      \text{Casi favorevoli} = 10 \times 9 = 90 \text{ casi}
+      \]
+    La probabilità è:
+    \[
+    P(\text{due ricoperti senza reinserimento}) = \frac{90}{870} = \frac{9}{87} = \frac{3}{29} \approx 0{,}1034 = 10{,}34\%
+    \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
