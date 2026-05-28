@@ -1,0 +1,456 @@
+% !TeX root = 02_esercitazione_probabilita_att_avanzata.tex
+\begin{center}
+  {\Huge \color{mainblue}\textbf{Esercitazione: Calcolo delle Probabilità (Avanzato)}}\\[0.2cm]
+  {\large \color{textgray}\textbf{Quarta Media Attitudinale -- Scheda di Sintesi e Consolidamento}}\\[0.2cm]
+  \rule{0.82\linewidth}{0.5pt}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{esercizio}{Il cammino del robot}
+Un piccolo robot parte dall'origine $A(0,0)$ di una griglia quadrata e compie un percorso di esattamente $3$ passi. A ogni incrocio, il robot prende una decisione lanciando una moneta non truccata:
+\begin{itemize}
+  \item Se esce \textbf{Testa (T)}, il robot fa un passo a \textbf{destra} (direzione $+x$, che indichiamo con $D$).
+  \item Se esce \textbf{Croce (C)}, il robot fa un passo in \textbf{alto} (direzione $+y$, che indichiamo con $S$).
+\end{itemize}
+
+La griglia e i possibili punti di arrivo dopo 3 passi ($B$, $C$, $D$, $E$) sono mostrati nella figura seguente:
+
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+  % Griglia di sfondo
+  \draw[step=1cm, gray!30, thin] (0,0) grid (3,3);
+  
+  % Assi coordinati
+  \draw[->, thick, color=textgray] (0,0) -- (3.4,0) node[right] {\small Destra ($x$)};
+  \draw[->, thick, color=textgray] (0,0) -- (0,3.4) node[above] {\small Alto ($y$)};
+  
+  % Incroci ed etichette
+  \fill[mainblue] (0,0) circle (3pt) node[below left] {\textbf{A (0,0)}};
+  
+  % Punti di arrivo dopo 3 passi
+  \fill[red!80!black] (3,0) circle (3pt) node[below right] {\textbf{B (3,0)}};
+  \fill[red!80!black] (2,1) circle (3pt) node[above right] {\textbf{C (2,1)}};
+  \fill[red!80!black] (1,2) circle (3pt) node[above right] {\textbf{D (1,2)}};
+  \fill[red!80!black] (0,3) circle (3pt) node[above left] {\textbf{E (0,3)}};
+  
+  % Esempio di percorso (tratteggiato blu)
+  \draw[dashed, line width=1.5pt, blue!70, ->] (0,0) -- (1,0);
+  \draw[dashed, line width=1.5pt, blue!70, ->] (1,0) -- (1,1);
+  \draw[dashed, line width=1.5pt, blue!70, ->] (1,1) -- (2,1);
+  \node[blue!80!black, below] at (1.5, -0.1) {\small Esempio: $D \to S \to D$};
+\end{tikzpicture}
+\end{center}
+
+Risolvi i seguenti quesiti:
+
+\begin{enumerate}[label=\alph*)]
+  \item Elenca tutti i possibili percorsi combinati di 3 passi (ad esempio $DDD$, $DDS$, ...) e scrivi quanti sono in totale.
+  \item Associa ciascun percorso dell'elenco al relativo punto di arrivo sulla griglia (ad esempio $DSD \to C(2,1)$) e compila una tabella che riassuma quanti percorsi portano a ciascuno dei punti $B$, $C$, $D$ ed $E$.
+  \item Qual è la probabilità che il robot arrivi esattamente nel punto $C(2,1)$?
+  \item Qual è la probabilità che il robot arrivi nel punto $B(3,0)$?
+  \item Qual è la probabilità che il robot termini il suo cammino in un punto con ordinata $y \ge 2$?
+\end{enumerate}
+
+\responsespace{3.8cm}
+
+\begin{soluzione}
+  \textbf{Risoluzione passo-passo:}
+  \begin{enumerate}[label=\alph*)]
+    \item A ogni passo il robot ha 2 scelte ($D$ o $S$). Compiendo 3 passi, lo spazio campionario $\Omega$ è composto da $2^3 = 8$ percorsi equiprobabili:
+    \[
+    \Omega = \{DDD, DDS, DSD, DSS, SDD, SDS, SSD, SSS\}
+    \]
+    Il numero totale di casi possibili è $8$.
+    \item Ogni lettera $D$ aumenta la coordinata $x$ di 1, mentre ogni lettera $S$ aumenta la coordinata $y$ di 1.
+    \begin{itemize}
+      \item \textbf{Punto B (3,0)}: richiede 3 passi a destra e 0 in alto. Percorso favorevole: $\{DDD\}$ (totale: \textbf{1 percorso}).
+      \item \textbf{Punto C (2,1)}: richiede 2 passi a destra e 1 in alto. Percorsi favorevoli: $\{DDS, DSD, SDD\}$ (totale: \textbf{3 percorsi}).
+      \item \textbf{Punto D (1,2)}: richiede 1 passo a destra e 2 in alto. Percorsi favorevoli: $\{DSS, SDS, SSD\}$ (totale: \textbf{3 percorsi}).
+      \item \textbf{Punto E (0,3)}: richiede 0 passi a destra e 3 in alto. Percorso favorevole: $\{SSS\}$ (totale: \textbf{1 percorso}).
+    \end{itemize}
+    \item Casi possibili = $8$. Casi favorevoli per $C(2,1)$ = $3$ ($DDS, DSD, SDD$).
+    \[
+    P(C) = \frac{\text{casi favorevoli}}{\text{casi possibili}} = \frac{3}{8} = 0{,}375 = 37{,}5\%
+    \]
+    \item Casi favorevoli per $B(3,0)$ = $1$ ($DDD$).
+    \[
+    P(B) = \frac{1}{8} = 0{,}125 = 12{,}5\%
+    \]
+    \item I punti con ordinata $y \ge 2$ sono il punto $D(1,2)$ (ordinata $y=2$) e il punto $E(0,3)$ (ordinata $y=3$).
+    I casi favorevoli sono i percorsi che portano a questi due punti: $\{DSS, SDS, SSD, SSS\}$ (in totale $3 + 1 = 4$ percorsi).
+    \[
+    P(y \ge 2) = \frac{4}{8} = \frac{1}{2} = 0{,}5 = 50\%
+    \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Il torneo di tennis al meglio delle tre}
+Due giovani tennisti, Riccardo e Sofia, si sfidano in un torneo finale. Vince il torneo il giocatore che si aggiudica per primo due partite (il torneo è strutturato ``al meglio delle tre partite'': si disputano al massimo tre partite, e il torneo termina non appena un giocatore ottiene due vittorie).
+
+I dati storici indicano che in ogni singola partita:
+\begin{itemize}
+  \item La probabilità che vinca \textbf{Riccardo} è pari a $0{,}6$ (che indichiamo con $R$).
+  \item La probabilità che vinca \textbf{Sofia} è pari a $0{,}4$ (che indichiamo con $S$).
+\end{itemize}
+
+L'esito di ogni singola partita è indipendente dalle altre.
+
+\begin{enumerate}[label=\alph*)]
+  \item Disegna un diagramma ad albero probabilistico che rappresenti lo svolgimento del torneo, indicando su ciascun ramo la relativa probabilità e in corrispondenza di ogni foglia il vincitore finale del torneo.
+  \item Qual è la probabilità che Riccardo si aggiudichi il torneo vincendo esattamente le prime due partite consecutive (esito $RR$)?
+  \item Qual è la probabilità complessiva che Sofia vinca il torneo? Mostra i calcoli dettagliati.
+  \item Qual è la probabilità che per decretare il vincitore del torneo sia necessario disputare esattamente tre partite?
+\end{enumerate}
+
+\responsespace{3.8cm}
+
+\begin{soluzione}
+  \textbf{Risoluzione passo-passo:}
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Struttura dell'Albero Probabilistico:}
+    A ogni nodo dell'albero si diramano due possibilità: $R$ (probabilità $0{,}6$) e $S$ (probabilità $0{,}4$). Il processo si arresta se un giocatore raggiunge 2 vittorie.
+    
+    Nel file delle soluzioni, l'albero è rappresentato matematicamente come segue:
+    \begin{center}
+    \begin{tikzpicture}[level distance=2.0cm,
+      sibling distance=3.0cm,
+      every node/.style={circle, draw=mainblue, fill=softblue, inner sep=2pt, thick, font=\small\bfseries\color{mainblue}},
+      edge from parent/.style={draw, gray!80, line width=1pt, ->}]
+      
+      \node[rectangle, rounded corners=3pt, font=\small] (R0) {Inizio}
+        child {node {R}
+          child {node {R} 
+            node[below=0.3cm, red!85!black, draw=none, fill=none] {\textbf{Riccardo vince (RR)}}
+            edge from parent node[left, font=\scriptsize] {$0{,}6$}
+          }
+          child {node {S}
+            child {node {R} 
+              node[below=0.3cm, red!85!black, draw=none, fill=none] {\textbf{Riccardo vince (RSR)}}
+              edge from parent node[left, font=\scriptsize] {$0{,}6$}
+            }
+            child {node {S} 
+              node[below=0.3cm, red!85!black, draw=none, fill=none] {\textbf{Sofia vince (RSS)}}
+              edge from parent node[right, font=\scriptsize] {$0{,}4$}
+            }
+            edge from parent node[right, font=\scriptsize] {$0{,}4$}
+          }
+          edge from parent node[left, font=\scriptsize] {$0{,}6$}
+        }
+        child {node {S}
+          child {node {R}
+            child {node {R} 
+              node[below=0.3cm, red!85!black, draw=none, fill=none] {\textbf{Riccardo vince (SRR)}}
+              edge from parent node[left, font=\scriptsize] {$0{,}6$}
+            }
+            child {node {S} 
+              node[below=0.3cm, red!85!black, draw=none, fill=none] {\textbf{Sofia vince (SRS)}}
+              edge from parent node[right, font=\scriptsize] {$0{,}4$}
+            }
+            edge from parent node[left, font=\scriptsize] {$0{,}6$}
+          }
+          child {node {S}
+            node[below=0.3cm, red!85!black, draw=none, fill=none] {\textbf{Sofia vince (SS)}}
+            edge from parent node[right, font=\scriptsize] {$0{,}4$}
+          }
+          edge from parent node[right, font=\scriptsize] {$0{,}4$}
+        };
+    \end{tikzpicture}
+    \end{center}
+    
+    \item L'evento ``Riccardo vince in due partite'' corrisponde al cammino $R \to R$ dell'albero. Moltiplicando le probabilità lungo i rami otteniamo:
+    \[
+    P(RR) = P(R) \cdot P(R) = 0{,}6 \cdot 0{,}6 = 0{,}36 = 36\%
+    \]
+    
+    \item Sofia vince il torneo se si verificano i seguenti percorsi mutuamente esclusivi:
+    \begin{itemize}
+      \item $S \to S$: con probabilità $P(SS) = 0{,}4 \cdot 0{,}4 = 0{,}16$ (16\%)
+      \item $S \to R \to S$: con probabilità $P(SRS) = 0{,}4 \cdot 0{,}6 \cdot 0{,}4 = 0{,}096$ (9,6\%)
+      \item $R \to S \to S$: con probabilità $P(RSS) = 0{,}6 \cdot 0{,}4 \cdot 0{,}4 = 0{,}096$ (9,6\%)
+    \end{itemize}
+    La probabilità complessiva che Sofia vinca il torneo è la somma di queste tre probabilità:
+    \[
+    P(\text{Sofia vince}) = P(SS) + P(SRS) + P(RSS) = 0{,}16 + 0{,}096 + 0{,}096 = 0{,}352 = 35{,}2\%
+    \]
+    
+    \item Il torneo dura esattamente tre partite se non si conclude alle prime due. Ciò avviene se i primi due incontri hanno vincitori diversi (ossia la sequenza comincia con $RS$ o con $SR$). In tal caso, si giocherà necessariamente la terza partita.
+    I percorsi favorevoli di tre partite sono: $RSR$, $RSS$, $SRR$, $SRS$.
+    Moltiplicando e sommando le probabilità di questi percorsi:
+    \begin{align*}
+      P(\text{durata } 3) &= P(RSR) + P(RSS) + P(SRR) + P(SRS) \\
+      &= (0{,}6 \cdot 0{,}4 \cdot 0{,}6) + (0{,}6 \cdot 0{,}4 \cdot 0{,}4) + (0{,}4 \cdot 0{,}6 \cdot 0{,}6) + (0{,}4 \cdot 0{,}6 \cdot 0{,}4) \\
+      &= 0{,}144 + 0{,}096 + 0{,}144 + 0{,}096 = 0{,}48 = 48\%
+    \end{align*}
+    \textit{Metodo alternativo più rapido:} Il torneo dura esattamente 2 partite nei casi $RR$ (probabilità $0{,}36$) e $SS$ (probabilità $0{,}16$). La probabilità che duri 2 partite è $0{,}36 + 0{,}16 = 0{,}52$.
+    Quindi, per l'evento complementare, la probabilità che duri esattamente 3 partite è:
+    \[
+    P(\text{durata } 3) = 1 - P(\text{durata } 2) = 1 - 0{,}52 = 0{,}48 = 48\%
+    \]
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Il sacchetto di caramelle}
+Un sacchetto coperto contiene inizialmente $12$ caramelle alla fragola (rosse) e un numero imprecisato $x$ di caramelle al limone (gialle). Sappiamo che estraendo una caramella a caso dal sacchetto, la probabilità di pescarne una alla \textbf{fragola} è esattamente pari a $0{,}6$.
+
+\begin{enumerate}[label=\alph*)]
+  \item Determina per via algebrica il numero $x$ di caramelle al limone inizialmente contenute nel sacchetto e calcola il numero totale di caramelle presenti.
+  \item Supponiamo ora di effettuare due estrazioni successive dal sacchetto \textbf{senza reinserimento} (la prima caramella viene estratta e tenuta fuori, poi si procede all'estrazione della seconda).
+  Disegna un diagramma ad albero probabilistico dettagliato per descrivere questo esperimento a due stadi, indicando le frazioni corrette delle probabilità su ciascun ramo.
+  \item Calcola la probabilità che le due caramelle estratte siano \textbf{entrambe dello stesso gusto}.
+  \item Calcola la probabilità che le due caramelle estratte siano di \textbf{gusto diverso}.
+\end{enumerate}
+
+\responsespace{3.8cm}
+
+\begin{soluzione}
+  \textbf{Risoluzione passo-passo:}
+  \begin{enumerate}[label=\alph*)]
+    \item Sappiamo che:
+    \[
+    P(\text{fragola}) = \frac{\text{casi favorevoli}}{\text{casi possibili}} = \frac{12}{12 + x} = 0{,}6
+    \]
+    Risolviamo l'equazione per trovare $x$:
+    \begin{align*}
+      \frac{12}{12 + x} &= \frac{6}{10} = \frac{3}{5} \\
+      12 \cdot 5 &= 3 \cdot (12 + x) \\
+      60 &= 36 + 3x \\
+      3x &= 24 \implies x = 8 \text{ caramelle al limone}
+    \end{align*}
+    Il numero totale di caramelle inizialmente presenti nel cesto è $12 + 8 = 20$.
+    
+    \item \textbf{Albero probabilistico per estrazione senza reinserimento:}
+    Alla prima estrazione ci sono 20 caramelle (12 Fragola, 8 Limone).
+    Alla seconda estrazione rimangono 19 caramelle totali nel sacchetto.
+    \begin{itemize}
+      \item Se la prima è Fragola ($F$): rimangono 11 Fragola e 8 Limone.
+      \item Se la prima è Limone ($L$): rimangono 12 Fragola e 7 Limone.
+    \end{itemize}
+    
+    L'albero risultante è:
+    \begin{center}
+    \begin{tikzpicture}[level distance=2.2cm,
+      sibling distance=3.5cm,
+      every node/.style={circle, draw=mainblue, fill=softblue, inner sep=2pt, thick, font=\small\bfseries\color{mainblue}},
+      edge from parent/.style={draw, gray!80, line width=1pt, ->}]
+      
+      \node[rectangle, rounded corners=3pt, font=\small] (R0) {Inizio}
+        child {node {F}
+          child {node {F}
+            node[below=0.2cm, draw=none, fill=none] {\small $P(FF) = \frac{12}{20} \cdot \frac{11}{19}$}
+            edge from parent node[left, font=\scriptsize] {$\frac{11}{19}$}
+          }
+          child {node {L}
+            node[below=0.2cm, draw=none, fill=none] {\small $P(FL) = \frac{12}{20} \cdot \frac{8}{19}$}
+            edge from parent node[right, font=\scriptsize] {$\frac{8}{19}$}
+          }
+          edge from parent node[left, font=\scriptsize] {$\frac{12}{20}$}
+        }
+        child {node {L}
+          child {node {F}
+            node[below=0.2cm, draw=none, fill=none] {\small $P(LF) = \frac{8}{20} \cdot \frac{12}{19}$}
+            edge from parent node[left, font=\scriptsize] {$\frac{12}{19}$}
+          }
+          child {node {L}
+            node[below=0.2cm, draw=none, fill=none] {\small $P(LL) = \frac{8}{20} \cdot \frac{7}{19}$}
+            edge from parent node[right, font=\scriptsize] {$\frac{7}{19}$}
+          }
+          edge from parent node[right, font=\scriptsize] {$\frac{8}{20}$}
+        };
+    \end{tikzpicture}
+    \end{center}
+
+    \item Le caramelle sono dello stesso gusto nei due casi esclusivi $FF$ e $LL$:
+    \begin{align*}
+      P(\text{stesso gusto}) &= P(FF) + P(LL) \\
+      &= \left( \frac{12}{20} \cdot \frac{11}{19} \right) + \left( \frac{8}{20} \cdot \frac{7}{19} \right) \\
+      &= \frac{132}{380} + \frac{56}{380} = \frac{188}{380} = \frac{47}{95} \approx 0{,}495 = 49{,}5\%
+    \end{align*}
+
+    \item Le caramelle sono di gusto diverso nei casi $FL$ e $LF$ (o calcolando l'evento complementare):
+    \begin{align*}
+      P(\text{gusto diverso}) &= 1 - P(\text{stesso gusto}) \\
+      &= 1 - \frac{188}{380} = \frac{192}{380} = \frac{48}{95} \approx 0{,}505 = 50{,}5\%
+    \end{align*}
+    \textit{Verifica con calcolo diretto:}
+    \begin{align*}
+      P(\text{gusto diverso}) &= P(FL) + P(LF) \\
+      &= \left(\frac{12}{20} \cdot \frac{8}{19}\right) + \left(\frac{8}{20} \cdot \frac{12}{19}\right) \\
+      &= \frac{96}{380} + \frac{96}{380} = \frac{192}{380} \approx 50{,}5\%
+    \end{align*}
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{La sfida dei dadi speciali}
+Due amici, Giovanni e Chiara, inventano un gioco lanciando due dadi speciali a sei facce non standard.
+\begin{itemize}
+  \item Giovanni lancia il \textbf{Dado A}, le cui facce sono numerate con: $\{2, 2, 2, 5, 5, 5\}$.
+  \item Chiara lancia il \textbf{Dado B}, le cui facce sono numerate con: $\{3, 3, 3, 3, 4, 4\}$.
+\end{itemize}
+I dadi vengono lanciati contemporaneamente. Vince la sfida chi ottiene il numero strettamente maggiore.
+
+\begin{enumerate}[label=\alph*)]
+  \item Costruisci una tabella a doppia entrata $6 \times 6$ che illustri tutte le possibili combinazioni dei risultati dei due dadi (Dado A sulle righe e Dado B sulle colonne).
+  \item Per ogni casella della tabella, scrivi chi si aggiudica la vittoria (G per Giovanni, C per Chiara).
+  \item Determina la probabilità di vittoria di Giovanni ($P_G$) e la probabilità di vittoria di Chiara ($P_C$).
+  \item Stabilisci se questo gioco è equo, oppure se favorisce uno dei due giocatori. Giustifica la risposta.
+\end{enumerate}
+
+\responsespace{3.8cm}
+
+\begin{soluzione}
+  \textbf{Risoluzione passo-passo:}
+  \begin{enumerate}[label=\alph*) e b)]
+    \item \textbf{Tabella a doppia entrata delle sfide:}
+    Giovanni ha 3 facce con il numero 2 e 3 facce con il numero 5.
+    Chiara ha 4 facce con il numero 3 e 2 facce con il numero 4.
+    Costruiamo la griglia $6 \times 6$ (36 casi possibili totali equiprobabili):
+
+    \begin{center}
+    \begin{spacing}{1.3}
+    \begin{tabular}{|c||c|c|c|c|c|c|}
+      \hline
+       & \textbf{Chiara 3} & \textbf{Chiara 3} & \textbf{Chiara 3} & \textbf{Chiara 3} & \textbf{Chiara 4} & \textbf{Chiara 4} \\ \hline\hline
+      \textbf{Giovanni 2} & C (3 > 2) & C (3 > 2) & C (3 > 2) & C (3 > 2) & C (4 > 2) & C (4 > 2) \\ \hline
+      \textbf{Giovanni 2} & C (3 > 2) & C (3 > 2) & C (3 > 2) & C (3 > 2) & C (4 > 2) & C (4 > 2) \\ \hline
+      \textbf{Giovanni 2} & C (3 > 2) & C (3 > 2) & C (3 > 2) & C (3 > 2) & C (4 > 2) & C (4 > 2) \\ \hline
+      \textbf{Giovanni 5} & G (5 > 3) & G (5 > 3) & G (5 > 3) & G (5 > 3) & G (5 > 4) & G (5 > 4) \\ \hline
+      \textbf{Giovanni 5} & G (5 > 3) & G (5 > 3) & G (5 > 3) & G (5 > 3) & G (5 > 4) & G (5 > 4) \\ \hline
+      \textbf{Giovanni 5} & G (5 > 3) & G (5 > 3) & G (5 > 3) & G (5 > 3) & G (5 > 4) & G (5 > 4) \\ \hline
+    \end{tabular}
+    \end{spacing}
+    \end{center}
+
+    \item \textbf{Calcolo delle Probabilità:}
+    \begin{itemize}
+      \item \textbf{Casi favorevoli a Giovanni (G)}: Giovanni ottiene 5 nelle 3 righe inferiori. In questo caso vince sempre, poiché Chiara può ottenere al massimo 4. I casi favorevoli sono le 3 righe da 6 colonne ciascuna $\implies 3 \times 6 = 18$ casi.
+      \[
+      P_G = \frac{18}{36} = \frac{1}{2} = 0{,}5 = 50\%
+      \]
+      \item \textbf{Casi favorevoli a Chiara (C)}: Chiara vince quando Giovanni ottiene 2 nelle 3 righe superiori. Chiara ottiene 3 o 4, che sono entrambi maggiori di 2. I casi favorevoli sono le 3 righe da 6 colonne ciascuna $\implies 3 \times 6 = 18$ casi.
+      \[
+      P_C = \frac{18}{36} = \frac{1}{2} = 0{,}5 = 50\%
+      \]
+    \end{itemize}
+
+    \item Poiché la probabilità di vittoria di Giovanni è esattamente pari a quella di Chiara ($P_G = P_C = 50\%$), il gioco è \textbf{perfettamente equo}. Nessuno dei due giocatori è favorito a lungo andare.
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
+
+\condnewpage
+
+\begin{esercizio}{Il labirinto stocastico del topo}
+Un piccolo topo da laboratorio viene introdotto in un labirinto a stanze. Il topo parte dalla \textbf{Stanza A}. A ogni passo:
+\begin{itemize}
+  \item Dalla \textbf{Stanza A}, il topo può scegliere di spostarsi nella \textbf{Stanza B} con probabilità $0{,}5$, oppure di infilarsi in un cunicolo cieco che conduce a una \textbf{Trappola (T)} con probabilità $0{,}5$.
+  \item Dalla \textbf{Stanza B}, il topo può scovare l'uscita dove c'è il \textbf{Formaggio (F)} (successo) con probabilità $0{,}5$, oppure ritornare indietro nella \textbf{Stanza A} con probabilità $0{,}5$.
+\end{itemize}
+Una volta che il topo finisce nella Trappola (T) o raggiunge il Formaggio (F), l'esperimento termina immediatamente.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2,
+  every node/.style={circle, draw=mainblue, fill=softblue, inner sep=3pt, thick, font=\bfseries\color{mainblue}},
+  arrow/.style={draw, ->, line width=1.2pt, mainblue}]
+  
+  \node (A) at (0,0) {A};
+  \node (B) at (3,0) {B};
+  \node[red!80!black, fill=red!10, draw=red!80!black] (T) at (0,-2) {T};
+  \node[green!60!black, fill=green!10, draw=green!60!black] (F) at (3,-2) {F};
+  
+  \draw[arrow, bend left=15] (A) to node[above, draw=none, fill=none, font=\small] {$0{,}5$} (B);
+  \draw[arrow, bend left=15] (B) to node[below, draw=none, fill=none, font=\small] {$0{,}5$} (A);
+  \draw[arrow] (A) to node[left, draw=none, fill=none, font=\small] {$0{,}5$} (T);
+  \draw[arrow] (B) to node[right, draw=none, fill=none, font=\small] {$0{,}5$} (F);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\alph*)]
+  \item Rappresenta le scelte del topo nei primi 3 passi tramite un diagramma ad albero probabilistico dettagliato. Per ogni ramo scrivi la relativa probabilità e in corrispondenza dei nodi terminali indica l'esito finale.
+  \item Calcola la probabilità che il topo riesca a raggiungere il \textbf{Formaggio (F)} in \textbf{al massimo 3 passi} complessivi.
+  \item Calcola la probabilità che il topo finisca nella \textbf{Trappola (T)} in \textbf{al massimo 3 passi}.
+  \item Calcola la probabilità che dopo 3 passi l'esperimento \textbf{non sia ancora terminato} (il topo si trova ancora in una stanza di transito).
+\end{enumerate}
+
+\responsespace{3.8cm}
+
+\begin{soluzione}
+  \textbf{Risoluzione passo-passo:}
+  \begin{enumerate}[label=\alph*)]
+    \item \textbf{Costruzione dell'albero stocastico fino a 3 passi:}
+    \begin{itemize}
+      \item \textbf{Passo 1 (da A)}: Il topo va in B (probabilità $0{,}5$) o in T (Trappola, probabilità $0{,}5$, fine).
+      \item \textbf{Passo 2 (da B)}: Il topo va in F (Formaggio, probabilità $0{,}5$, fine) o ritorna in A (probabilità $0{,}5$).
+      \item \textbf{Passo 3 (da A dopo essere tornato)}: Il topo va in B (probabilità $0{,}5$) o in T (Trappola, probabilità $0{,}5$, fine).
+    \end{itemize}
+
+    Visualizziamo l'albero risultante:
+    \begin{center}
+    \begin{tikzpicture}[level distance=2.2cm,
+      sibling distance=3.5cm,
+      every node/.style={circle, draw=mainblue, fill=softblue, inner sep=2pt, thick, font=\small\bfseries\color{mainblue}},
+      edge from parent/.style={draw, gray!80, line width=1pt, ->}]
+      
+      \node[rectangle, rounded corners=3pt, font=\small] (R0) {A}
+        child {node {B}
+          child {node {F} 
+            node[below=0.2cm, green!60!black, draw=none, fill=none] {\textbf{Successo (F) - 2 passi}}
+            edge from parent node[left, font=\scriptsize] {$0{,}5$}
+          }
+          child {node {A}
+            child {node {B}
+              node[below=0.2cm, draw=none, fill=none] {\textbf{In transito B - 3 passi}}
+              edge from parent node[left, font=\scriptsize] {$0{,}5$}
+            }
+            child {node {T}
+              node[below=0.2cm, red!80!black, draw=none, fill=none] {\textbf{Trappola (T) - 3 passi}}
+              edge from parent node[right, font=\scriptsize] {$0{,}5$}
+            }
+            edge from parent node[right, font=\scriptsize] {$0{,}5$}
+          }
+          edge from parent node[left, font=\scriptsize] {$0{,}5$}
+        }
+        child {node {T}
+          node[below=0.2cm, red!80!black, draw=none, fill=none] {\textbf{Trappola (T) - 1 passo}}
+          edge from parent node[right, font=\scriptsize] {$0{,}5$}
+        };
+    \end{tikzpicture}
+    \end{center}
+
+    \item L'unico percorso che porta al Formaggio (F) entro 3 passi è il cammino $A \to B \to F$ (che richiede esattamente 2 passi):
+    \[
+    P(\text{Formaggio in } \le 3 \text{ passi}) = P(ABF) = 0{,}5 \cdot 0{,}5 = 0{,}25 = 25\%
+    \]
+
+    \item I percorsi che portano alla Trappola (T) in al massimo 3 passi sono:
+    \begin{itemize}
+      \item $A \to T$ (1 passo): probabilità $P(AT) = 0{,}5$ (50\%)
+      \item $A \to B \to A \to T$ (3 passi): probabilità $P(ABAT) = 0{,}5 \cdot 0{,}5 \cdot 0{,}5 = 0{,}125$ (12,5\%)
+    \end{itemize}
+    La probabilità totale è la somma di questi due percorsi indipendenti:
+    \[
+    P(\text{Trappola in } \le 3 \text{ passi}) = P(AT) + P(ABAT) = 0{,}5 + 0{,}125 = 0{,}625 = 62{,}5\%
+    \]
+
+    \item L'esperimento non è terminato se il topo si trova ancora in una stanza di transito (Stanza B) alla fine del terzo passo.
+    Questo corrisponde al percorso $A \to B \to A \to B$:
+    \[
+    P(\text{Non terminato a 3 passi}) = P(ABAB) = 0{,}5 \cdot 0{,}5 \cdot 0{,}5 = 0{,}125 = 12{,}5\%
+    \]
+    \textit{Verifica di coerenza:} La somma di tutte le probabilità stocastiche dei rami terminali a 3 stadi deve essere pari al $100\%$:
+    \begin{align*}
+      P(ABF) + P(ABAB) + P(ABAT) + P(AT) &= 0{,}25 + 0{,}125 + 0{,}125 + 0{,}5 \\
+      &= 1{,}0 \quad (\text{Corretto!})
+    \end{align*}
+  \end{enumerate}
+\end{soluzione}
+\end{esercizio}
